@@ -2,42 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Mobile: Don't Break the Web</title>
-    <style>
-    iframe {display: none;}
-    .current iframe {display: inherit;}
-	.code {
-   color: black;
-   font-size: 85%;
-   background-color: rgba(255,255,255,0.4);
-   -webkit-transition: all 2s ease-in 50ms;
-   -moz-transition: all 2s ease-in 50ms;
-   -ms-transition: all 2s ease-in 50ms;
-   -o-transition: all 2s ease-in 50ms;
-   transition: all 2s ease-in 50ms;
-}
-.code:hover {
-   color: red;
-   background-color: rgba(255,255,255,0.9);
-}
-.code:not(.code2):hover {
-   font-size: 120%;
-}
-.code2:hover {
-	-webkit-transform: scale(1.4);
-	-webkit-transform-origin: top left;
-	-moz-transform: scale(1.4);
-	-moz-transform-origin: top left;
-	-ms-transform: scale(1.4);
-	-ms-transform-origin: top left;
-	-o-transform: scale(1.4);
-	-o-transform-origin: top left;
-	transform: scale(1.4);
-	transform-origin: top left;
-
-}
-.yes, .
-</style>
+    <title>Mobile CSS3: What you need to know</title>
+    <style></style>
 <link href="mobilecss.css" rel="stylesheet" media="projection, screen">
 
 </head>
@@ -225,6 +191,7 @@ A complex page means more bytes to download, and it also means slower DOM access
       <li>Latency</li>
         <li>Memory</li>
         <li>UI responsiveness</li>
+        <li>Plethora of Screen Sizes</li>
      </ul>
      <h2 style="position:absolute; bottom: 50px; right: 0; left: 0;">Phones aren't Laptops</h2>
      </section>
@@ -243,7 +210,7 @@ A complex page means more bytes to download, and it also means slower DOM access
           <li>Avoid repaints</li>
           <li>Minimize JavaScript (size and activity)</li>
           <li>No JavaScript animations</li>
-          <li>Do you really need
+          <li>Do you really need library/framework?</li>
         </ul>
      </section>
         <footer><a href="http://www2012.org/proceedings/proceedings/p41.pdf">Who killed my battery - PDF</a></footer>
@@ -262,10 +229,159 @@ A complex page means more bytes to download, and it also means slower DOM access
   </section>
 </div>
 
+<!-- Device Memory: CPU comparison -->
+<div class="slide normal">
+ <header><h1>Memory</h1></header>
+ <section>
+    <table class="rowed">
+    <thead>
+    <tr>
+        <th>Device</th>
+        <th>Memory</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>iPhone 3G</td>
+          <td>128MB</td>
+        </tr>
+        <tr>
+          <td>iPhone 3GS</td>
+          <td>256 MB</td>
+        </tr>
+        <tr>
+          <td>HTC Inspire</td>
+          <td>768 MB</td>
+        </tr>
+        <tr>
+          <td>Galaxy Nexus &nbsp;</td>
+          <td>1024 MB</td>
+        </tr>
+        <tr>
+          <td>iPad 1</td>
+          <td>256 MB</td>
+        </tr>
+        <tr>
+          <td>iPod Touch (4) &nbsp;</td>
+          <td>256 MB</td>
+        </tr>
+
+        <tr>
+          <td>iPad 3 </td>
+          <td>1024 MB</td>
+        </tr>
+
+        <tr>
+          <td>iPad Mini</td>
+          <td>512 MB</td>
+        </tr>
+        <tr>
+          <td>MacBook Pro</td>
+          <td>16 GB</td>
+        </tr>
+    </tbody>
+    </table>
+<p><strong>Mobile Norm:</strong> 512MB of RAM, with 1GHz Processor<br/><strong style="opacity: 0;">Mobile Norm:</strong> Moving toward 1GB RAM</p>
+<h2 class="text-align: center;">Developing without mobile in mind <br>
+leads to sloppy App Dev</h2>
+ </section>
+</div>
+
+<!-- HTC Inspire: How much CPU is used without anything running-->
+<div class="slide normal">
+     <header><h1>Browser shares Memory</h1></header>
+     <section>
+    <table class="htc">
+    <thead><tr><td colspan="3">Running Services</td></tr></thead>
+    <tfoot><tr><td style="background-color:#FCC">Other</td><td colspan="2" style="background-color:#6C9">73MB Avail: 255MB + 182MB in 21</td></tr></tfoot>
+    <tbody>
+      <tr><td colspan="2">Calendar</td><td>8.4MB</td></tr>
+        <tr><td colspan="3">Process:com.htc.bgp</td></tr>
+
+      <tr><td rowspan="2"></td><td>ObexService</td><td>31:52:14</td></tr>
+        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
+
+      <tr><td colspan="2">AT&amp;T Navigator</td><td>8.4MB</td></tr>
+        <tr><td colspan="3">Process: com.telnav.app.android.congular</td></tr>
+
+      <tr><td rowspan="2"></td><td>ResoucePreLoader</td><td>Restarting</td></tr>
+        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
+
+
+      <tr><td colspan="2">AT&amp;T Spots</td><td>2.4MB</td></tr>
+        <tr><td colspan="3">Process: com.matchboxmobile.wasp</td></tr>
+
+      <tr><td rowspan="2"></td><td>WispService</td><td>31:52:14</td></tr>
+        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
 
 
 
+      <tr><td colspan="2">Media</td><td>4.1MB</td></tr>
+        <tr><td colspan="3">Process: android.process.media</td></tr>
 
+      <tr><td rowspan="2"></td><td>DownloadService</td><td>31:52:14</td></tr>
+        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
+
+
+
+      <tr><td colspan="2">PVWmdrmService</td><td>2.2MB</td></tr>
+        <tr><td colspan="3">Process: com.pv.wmdrmservice</td></tr>
+
+      <tr><td rowspan="2"></td><td>PVWmdrmService</td><td>31:52:14</td></tr>
+        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
+    </tbody>
+    </table>
+     </section>
+    </div>
+
+
+
+<!-- touch events -->
+<div class="slide normal" style="background-image:url(images/gestures.gif); background-size:80%; background-position: 50% 90%">
+<header>
+<h1>UI responsiveness - Touch Events</h1>
+</header>
+<section>
+<div style="background-image:url(images/touch.gif), url(images/thumbup.jpg), url(images/butler.jpg); background-color:rgba(255,255,255,0.85);  background-position: 5% bottom, 45% 95%, 95% 98%; width: 70%; margin: auto; padding: 20px; padding-bottom: 100px; min-height: 100px;  border: solid #ccc; border-radius: 15px;">
+
+<ul class="sevenless">
+    <li>Touch Event: 300 - 500ms delay</li>
+    <li>Extra touches aren't forgotten</li>
+    <li>Co-opt with touch events with JS
+      <ol>
+      <li>Accept input</li>
+      <li>Provide user feedback</li>
+      <li>Update the UI</li>
+      </ol>
+    </li>
+</ul>
+</div>
+
+<footer>Credit: <a href="http://www.lukew.com/touch/TouchGestureGuide.pdf">Luke W.</a></footer>
+</section>
+</div>
+
+<div class="slide">
+  <header><h1>Varied Screen Sizes</h1></header>
+    <section class="content">
+      <ul class="sevenless">
+      <li>Smart Phone</li>
+      <li>Tablet</li>
+      <li>Laptop</li>
+      <li>Monitor</li>
+      <li>TV</li>
+      <li>Wrist Watch</li>
+      </ul>
+      <h2 class="temphidden">portrait v. landscape?</h2>
+      <h2 class="temphidden">high and low resolution?</h2>
+    </section>
+</div>
+
+<div class="slide intro">
+  <header><h1>Screen Size</h1></header>
+    <section class="content">
+    </section>
+</div>
 
 
 <!-- media queries: browser support -->
@@ -275,24 +391,23 @@ A complex page means more bytes to download, and it also means slower DOM access
     <pre contenteditable>&lt;link rel='stylesheet'
 <b>media='screen and (min-width: 320px) and (max-width: 480px)'</b><br/>href='css/smartphone.css' /&gt;</pre>
   <pre contenteditable><b>@media screen and (max-width: 480px)</b>{
-  a {
-    transition: background-color 200ms linear 50ms;
+  selector { /* small screen */
+    property: value;
   }
 <b>}
 
 @media screen and (orientation: landscape)</b> {
-  a[href^="mailto:]:before {
-    content: url(icons/email.gif);
+  selector { /* landscape properties */
+    property: value;
+  }
+<b>}</b>
+
+<b>@media screen and (-webkit-min-device-pixel-ratio: 1.5)</b> {
+  selector { /* properties for higher resolution screens */
+    property: value;
   }
 <b>}</b>
   </pre>
-<ul class="icons">
-         <li class="chrome">Chrome</li>
-         <li class="safari">Safari 3.5</li>
-         <li class="firefox">Firefox 3.5</li>
-         <li class="opera">Opera 9.5</li>
-        <li class="ie new">IE 9</li>
-     </ul>
     </section>
 </div>
 
@@ -303,6 +418,7 @@ A complex page means more bytes to download, and it also means slower DOM access
 
 <!-- media queries: v 3 -->
 <div class="slide normal">
+  <header><h1>media query properties</h1></header>
 <section class="content"><ul>
 <li><em>(min/max)-width:</em> viewport width</li>
 <li><em>(min/max)-height:</em> viewport height</li>
@@ -311,31 +427,61 @@ A complex page means more bytes to download, and it also means slower DOM access
 <li><em>orientation:</em> portrait(h>w) | landscape(w>h)</li>
 <li><em>(min/max)-aspect-ratio:</em> width/height</li>
 <li><em>(min/max)-device-aspect-ratio:</em> device-width/height</li>
+<li><em>(min/max)-resolution:</em> 72dpi | 100dpcm</li>
 </ul>
-</section>
-<ul style="margin:-20px 20px; opacity: 0.3">
+<ul style="opacity: 0.3">
 <li><em>(min/max)-color:</em> </li>
 <li><em>(min/max)-color-index:</em> </li>
 <li><em>(min/max)-monochrome:</em> 0 | 1+</li>
-<li><em>(min/max)-resolution:</em> 72dpi | 100dpcm</li>
 <li><em>scan:</em> progressive | interlace (tv) </li>
 <li><em>grid:</em> 0 | 1 (grids (like tty) or bitmap)</li>
 <li>See <a href="http://www.w3.org/TR/css3-mediaqueries/#media1">Media Queries Spec</a></li>
 </ul>
+<ul style="float: right" class="temphidden">
+  <li>case insensitive</li>
+  <li>unknown media types  == false</li>
+</ul>
+</section>
 
 </div>
+
+<div class="slide">
+  <header><h1>High Resolution Implementation</h1></header>
+    <section class="content">
+<p>Supported in Webkit Browsers</p>
+<pre contenteditable>-webkit-min-device-pixel-ratio: 2</pre>
+<p>Firefox up to FF 16</p>
+<pre contenteditable>min--moz-device-pixel-ratio: 2</pre>
+<p>The standard way</p>
+<pre contenteditable>min-resolution: 2dppx</pre>
+<p>dppx fallback</p>
+<pre contenteditable>min-resolution: 192dpi</pre>
+<ul style="float: right" class="temphidden">
+  <li>Parentheses around expressions are required</li>
+</ul>
+    </section>
+</div>
+
+
+<div class="slide object">
+  <object data="play/mediaqueries.html"></object>
+  <a href="files/mediaqueries.html" class="objectlink" target="play">Play</a>
+ </div>
+
 
 <!-- media queries: tidbits -->
 <div class="slide">
   <header><h1>Media Query Syntax/Punctuation</h1></header>
     <section class="content">
-    <pre contenteditable>media="<b>only</b> print and (color)"
-
-media="only screen <b>and</b> (orientation: portrait)"
-
-media="<b>not</b> screen and (color)"
-
-media="print<b>,</b> screen and (min-width: 480px)"</pre>
+      <p>"only" leaves out older browsers</p>
+    <pre contenteditable>media="<b>only</b> print and (color)"</pre>
+<p>"and" - both parts must be true</p>
+<pre contenteditable>media="only screen <b>and</b> (orientation: portrait)"
+</pre>
+<p>"not" - if untrue</p>
+<pre contenteditable>media="<b>not</b> screen and (color)"</pre>
+<p>Comma separates selectors - any part can be true</p>
+<pre contenteditable>media="print<b>,</b> screen and (min-width: 480px)"</pre>
  </section>
 </div>
 
@@ -362,49 +508,18 @@ media="print<b>,</b> screen and (min-width: 480px)"</pre>
 </div>
 
 <div class="slide object">
-  <object data="files/40_supports.html"></object>
-  <a href="files/40_supports.html" class="objectlink" target="_new">Visit Site</a>
+  <object data="play/supports.html"></object>
+  <a href="play/supports.html" class="objectlink" target="_new">Play</a>
  </div>
 
 <div class="slide object">
-  <object data="http://jsfiddle.net/estelle/m5Qeh/"></object>
-  <a href="http://jsfiddle.net/estelle/m5Qeh/" class="objectlink" target="_new">Visit Site</a>
+  <object data="http://codepen.io/estelle/pen/ihsny"></object>
+  <a href="http://codepen.io/estelle/pen/ihsny" class="objectlink" target="play">Visit Site</a>
  </div>
 
 
 <!-- media queries: Slide deck example -->
-<div class="slide" id="mediaqueryeffect">
-      <header>
-         <h1>Play with presentation window size
-         </h1>
-      </header>
-      <section class="content">
 
-<pre contenteditable>body {
-  -&lt;prefix&gt;-transition: all 1.5s linear;
-}
-@media only screen and (orientation: portrait) {
-  body{
-    background: indianred;
-  }
-}
-@media only screen and (max-width: 480px) {
-  body{
-    background: palegoldenrod;
-  }
-}</pre>
-
- <p><small>shrink this window to see the presentation change colors</small></p>
-      </section>
-  </div>
-
-<!-- mediaqueri.es -->
- <div class="slide" style="padding:0; overflow:hidden;">
-<object data="http://mediaqueri.es/" style="height: 780px;
-width: 940px;
-overflow:hidden; ">
-     </object>
-</div>
 
 
 
@@ -456,6 +571,44 @@ overflow:hidden; ">
 }</pre>
 </section>
 </div>
+
+<div class="slide">
+  <header><h1>Viewport Sidenote</h1></header>
+    <section class="content">
+      <p>If &lt;meta&gt; is set to disable zoom, in Chrome and Firefox there is no delay on onClick events.<p>
+    </section>
+</div>
+
+<!-- mobile specific CSS -->
+<div class="slide">
+  <header><h1>Mobile Specific CSS</h1></header>
+    <section class="content">
+      <p>Tap Highlight Color</p>
+<pre contenteditable> -webkit-tap-highlight-color: #bada55;</pre>
+<p>Prevent Select &amp; Hold dialogue</p>
+<pre contenteditable> -webkit-user-select: none;</pre>
+<p>Prevent Images Dialog</p>
+<pre contenteditable> -webkit-touch-callout: none;</pre>
+<p>Prevent accidental OS popups (panning)</p>
+<pre contenteditable>-ms-touch-action: none;</pre>
+    </section>
+</div>
+
+<!-- -----------------------------------
+*
+*
+*
+*
+--------------------------------------- -->
+
+<div class="slide">
+  <header><h1></h1></header>
+    <section class="content">
+    </section>
+</div>
+
+
+
 
 
 <!-- WPO v MUIP (phones)-->
@@ -605,81 +758,7 @@ Mobile UI Performance</h1>
     </section>
 </div>
 
-<!-- Device Memory: CPU comparison -->
-<div class="slide normal">
- <header><h1>Memory</h1></header>
- <section>
-    <table class="rowed">
-    <thead>
-    <tr>
-        <th>Device</th>
-        <th>Memory</th><th></th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr><td>iPhone 3G</td><td>128MB</td><td rowspan="6"><img src="images/iphone.jpg" width="40" alt="iphone"><br>
-        <img src="images/htcinspire.jpg"width="40" alt="htc inspire"><br>
-        <img src="images/ipad.jpg"width="40" alt="iPad"></td></tr>
-        <tr><td>iPhone 3GS</td><td>256 MB</td></tr>
-        <tr><td>HTC Inspire</td><td>768 MB</td></tr>
-        <tr><td>iPad 1</td><td>256 MB</td></tr>
-        <tr><td>iPod Touch (4)</td><td>256 MB</td></tr>
-        <tr><td>MacBook Pro</td><td>8 GB</td></tr>
-    </tbody>
-    </table>
-<p class="notes" style="padding-top: 40px"><strong>Mobile Norm:</strong> 512MB of RAM, with 1GHz Processor</p>
-<p class="notes"><strong>PC Norm:</strong> 8GB+ RAM  </p>
-<h2 class="notes" class="text-align: center;">Developing without mobile in mind <br>
-leads to sloppy App Dev</h2>
- </section>
-</div>
 
-<!-- HTC Inspire: How much CPU is used without anything running-->
-<div class="slide normal">
-     <header><h1>Browser shares Memory</h1></header>
-     <section>
-    <table class="htc">
-    <thead><tr><td colspan="3">Running Services</td></tr></thead>
-    <tfoot><tr><td style="background-color:#FCC">Other</td><td colspan="2" style="background-color:#6C9">73MB Avail: 255MB + 182MB in 21</td></tr></tfoot>
-    <tbody>
-    	<tr><td colspan="2">Calendar</td><td>8.4MB</td></tr>
-        <tr><td colspan="3">Process:com.htc.bgp</td></tr>
-
-    	<tr><td rowspan="2"></td><td>ObexService</td><td>31:52:14</td></tr>
-        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
-
-    	<tr><td colspan="2">AT&amp;T Navigator</td><td>8.4MB</td></tr>
-        <tr><td colspan="3">Process: com.telnav.app.android.congular</td></tr>
-
-    	<tr><td rowspan="2"></td><td>ResoucePreLoader</td><td>Restarting</td></tr>
-        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
-
-
-    	<tr><td colspan="2">AT&amp;T Spots</td><td>2.4MB</td></tr>
-        <tr><td colspan="3">Process: com.matchboxmobile.wasp</td></tr>
-
-    	<tr><td rowspan="2"></td><td>WispService</td><td>31:52:14</td></tr>
-        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
-
-
-
-    	<tr><td colspan="2">Media</td><td>4.1MB</td></tr>
-        <tr><td colspan="3">Process: android.process.media</td></tr>
-
-    	<tr><td rowspan="2"></td><td>DownloadService</td><td>31:52:14</td></tr>
-        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
-
-
-
-    	<tr><td colspan="2">PVWmdrmService</td><td>2.2MB</td></tr>
-        <tr><td colspan="3">Process: com.pv.wmdrmservice</td></tr>
-
-    	<tr><td rowspan="2"></td><td>PVWmdrmService</td><td>31:52:14</td></tr>
-        <tr><td colspan="2">Started by application: Touch to stop</td></tr>
-    </tbody>
-    </table>
-     </section>
-    </div>
 
 <!--GZip does not suffice -->
 <div class="slide normal">
@@ -1110,45 +1189,7 @@ initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /&gt;</pre>
     </section>
 </div>
 
-<!-- Header - UI Responsiveness -->
-<div class="slide normal" style="background-image: url(images_old/clock.jpg); background-size:cover;">
-<header>
-<h1>UI responsiveness</h1>
-</header>
-<section>
-<footer>Photo: <a href="http://iblogo.com">iblogo.com</a></footer>
-</section>
-</div>
 
-<!-- touch events -->
-<div class="slide normal" style="background-image:url(images_old/gestures.gif); background-size:80%; background-position: 50% 90%" onClick="this.querySelector('section ul').style.visibility ='visible';">
-<header>
-<h1>Touch Events</h1>
-</header>
-<section>
-<ul  class="sevenless notes" style="text-shadow: 2px 2px 2px rgba(0,0,0,0.4);  margin-top: 150px; background-color:rgba(255,240,230,0.8);" >
-    <li>Touch Event: 300ms delay</li>
-    <li>Extra touches aren't forgotten</li>
-    <li>co-opt with touch events with JS</li>
-</ul>
-<footer>Credit: <a href="http://www.lukew.com/touch/TouchGestureGuide.pdf">Luke W.</a></footer>
-</section>
-</div>
-
-<!-- Steps for responsive UI -->
-<div class="slide normal" style="background-image:url(images_old/touch.gif) , url(images_old/thumbup.jpg) , url(images_old/butler.jpg); background-position: 5% bottom, 45% 95%, 95% 98%">
-<header>
-<h1>Responsive UI</h1>
-</header>
-<section>
-
-<ol>
-<li>Accept input</li>
-<li>Provide user feedback</li>
-<li>Update the UI</li>
-</ol>
-</section>
-</div>
 
 <!-- JS Listeners -->
 <div class="slide normal" style="background-image:url(images_old/queue.jpg); background-size:cover;">
@@ -1350,7 +1391,7 @@ but animation has to wait.</p>
   </div>
 
  <footer>
-<p style="float: left;">Press <span class="button">&rarr;</span> key to advance.</p> <p style="float:right"><a href="http://www.twitter.com/estellevw">@estellevw</a> &middot; <a href="http://www.standardista.com/mobile">Standardista.com/mobile</a></p>
+<p style="float: left;">Press <span class="button">&rarr;</span> key to advance.</p> <p style="float:right"><a href="http://www.twitter.com/estellevw">@estellevw</a> &middot; <a href="http://estelle.github.com/mobilecss/">Estelle.Github.com/mobilecss/</a></p>
 </footer>
   <script src="mobilecss.js"></script>
 

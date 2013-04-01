@@ -157,7 +157,7 @@ var slides = function() {
   var ver = parseFloat(ua.split('Version/')[1]) || undefined;
   // test to determine if this browser can handle CSS transitions.
 
-  var cachedCanTransition = 
+  var cachedCanTransition =
 
     (isWK || (isFF && isFF > 3.6 ) || (isOpera && ver >= 10.5));
     return function() { return cachedCanTransition; }
@@ -350,38 +350,38 @@ var slides = function() {
 
     this.current = isNaN(this.current) ? 1 : this.current;
     var _t = this;
-    doc.addEventListener('keydown', 
+    doc.addEventListener('keydown',
         function(e) { _t.handleKeys(e); }, false);
-		
-    doc.addEventListener('mousewheel', 
+
+    doc.addEventListener('mousewheel',
         function(e) { _t.handleWheel(e); }, false);
-		
-    doc.addEventListener('DOMMouseScroll', 
+
+    doc.addEventListener('DOMMouseScroll',
         function(e) { _t.handleWheel(e); }, false);
-		
-    doc.addEventListener('touchstart', 
+
+    doc.addEventListener('touchstart',
         function(e) { _t.handleTouchStart(e); }, false);
-		
-    doc.addEventListener('touchend', 
+
+    doc.addEventListener('touchend',
         function(e) { _t.handleTouchEnd(e); }, false);
     window.addEventListener('popstate',
         function(e) { _t.go(e.state); }, false);
-		
-	doc.querySelector('#back').addEventListener('click', 
+
+	doc.querySelector('#back').addEventListener('click',
 		function(e) {_t.prev();}, false);
-		
-	doc.querySelector('#next').addEventListener('click', 
+
+	doc.querySelector('#next').addEventListener('click',
 		function(e) {_t.next();}, false);
-		
+
 	var visibilityItems = doc.querySelectorAll('ul.visibility li');
-	
+
 	for (var i = 0; i < visibilityItems.length; i++) {
     	var element = visibilityItems.item(i); // you must use the item() method. Sorry!
-	
-		element.addEventListener('click', 
+
+		element.addEventListener('click',
 			function(e) {this.classList.toggle('visible');}, false);
 	}
-	
+
     this._update();
   };
 
@@ -422,7 +422,7 @@ var slides = function() {
     current: 0,
 
     next: function() {
-
+      if (this.removeHidingClass()) return;
       if (!this._slides[this.current-1].buildNext()) {
 
         this.current = Math.min(this.current + 1, this._slides.length);
@@ -449,56 +449,51 @@ var slides = function() {
       this._update(true);
     },
 
-
-
     _notesOn: false,
 
     showNotes: function() {
 	  this._notesOn = !this._notesOn;
       var isOn = this._notesOn;
       query('.notes').forEach(function(el) {
-
         el.style.display = (isOn) ? 'block' : 'none';
       });
     },
 
     switch3D: function() {
-
       toggleClass(document.body, 'three-d');
     },
 
-    handleWheel: function(e) {
+    removeHidingClass: function(){
+      var paragraphToShow = document.querySelector('.current .temphidden');
+      if(paragraphToShow) {
+        paragraphToShow.classList.remove('temphidden');
+        return true;
+      } else {
+        return false;
+      }
+    },
 
+
+    handleWheel: function(e) {
       var delta = 0;
       if (e.wheelDelta) {
-
         delta = e.wheelDelta/120;
         if (isOpera) {
-
           delta = -delta;
         }
-
       } else if (e.detail) {
-
         delta = -e.detail/3;
       }
-
-
-
       if (delta > 0 ) {
-
         this.prev();
         return;
       }
-
       if (delta < 0 ) {
-
         this.next();
         return;
       }
-
     },
-	
+
 	addNotes: function(){
 		if(document.querySelector('.current textarea.mynotes')) {
 			var foo = document.querySelector('.current textarea.mynotes').classList;
@@ -510,7 +505,7 @@ var slides = function() {
 		var key = 'speed' +  window.location.hash;
 		ta.value = window.localStorage.getItem(key) || '';
 		ta.classList.add('mynotes');
-		
+
 		ta.addEventListener('keyup', function(){
 			//console.log(key + ' ' + ta.value)
 		    window.localStorage.setItem(key,ta.value);
@@ -518,31 +513,34 @@ var slides = function() {
 		currentSlide.appendChild(ta);
 	},
     handleKeys: function(e) {    if (/^(input|textarea)$/i.test(e.target.nodeName)) return;
-      
+      console.log(e.keyCode);
 
       switch (e.keyCode) {
 
-        case 37: 
+        case 37:
         case 33: // left arrow
-          this.prev(); break;
+          this.prev();
+          break;
         case 39: // right arrow
-
         case 34:
         case 32: // space
-
-          this.next(); break;
+          this.next();
+          break;
         case 50:
-		case 190: // 2
-		  console.log(e.keyCode);
-          this.showNotes(); break;
+		    case 190: // 2
+          this.showNotes();
+          break;
         case 52: // 4
-          this.addNotes(); break;
+          this.addNotes();
+          break;
         case 51: // 3
-
-          this.switch3D(); break;
-		case 116:
-		case 27:
-		location.reload(true); return false; break;
+          this.switch3D();
+          break;
+    		case 116:
+    		case 27:
+    		  location.reload(true);
+          return false;
+          break;
 
       }
 
@@ -551,24 +549,18 @@ var slides = function() {
     _touchStartX: 0,
 
     handleTouchStart: function(e) {
-
       this._touchStartX = e.touches[0].pageX;
     },
 
     handleTouchEnd: function(e) {
-
       var delta = this._touchStartX - e.changedTouches[0].pageX;
       var SWIPE_SIZE = 150;
       if (delta > SWIPE_SIZE) {
-
         this.next();
       } else if (delta< -SWIPE_SIZE) {
-
          this.prev();
        }
-
     },
-
   };
 
 
