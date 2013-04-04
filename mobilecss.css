@@ -669,6 +669,11 @@ dd {
 .deprecated dt:hover + dd {
   display: inherit;
 }
+/* columnsslide */
+#columnsslide p {
+  font-size: 0.85rem;
+  line-height: 1;
+}
 
 /* OBJECT PAGES */
 .object header {

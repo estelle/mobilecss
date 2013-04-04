@@ -13,14 +13,20 @@ body {font-family:Verdana, Geneva, sans-serif; font-size:1.2em; min-height: 50%;
 
 </style>
 
-<style contenteditable>@media screen and (min-width: 400px){
-  body {background-color: green;}
+<style contenteditable>@media screen and (max-width: 500px){
+  :root {background-color: lightsteelblue;}
+  body {text-decoration: underline;}
+}
+@media screen and (min-width: 600px){
+  :root {background-color: slategrey;}
+  body {font-weight: bold;}
 }</style>
 <title>Media Queries</title>
 </head>
 
 <body>
-  <p>Change the @media rule above.</p>
+  <p>Change the @media rules above.</p>
+  <p>You can also shrink/grow the presentation.</p>
 </body>
 </html>
 
