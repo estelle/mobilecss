@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="200">
+ <g>
+  <title>Simple SVG + mediaqueries</title>
+  <!-- original by andreas bovens -->
+  <defs>
+  <style type="text/css">
+  .img {
+  display: none;
+  }
+  @media screen and (max-width: 900px) {
+  #huge {display: block}
+  }
+  @media screen and (max-width: 700px) {
+  #large {display: block}
+  }
+  @media screen and (max-width: 500px) {
+  #medium {display: block}
+  }
+  @media screen and (max-width: 300px) {
+  #small {display: block}
+  }
+  </style>
+  </defs>
+
+  <image
+       y="0"
+       x="0"
+       id="small"
+       class="img"
+       height="200"
+       width="300"
+       xlink:href="http://placekitten.com/300/200" />
+
+  <image
+       y="0"
+       x="0"
+       id="medium"
+       class="img"
+       height="200"
+       width="300"
+       xlink:href="http://placekitten.com/600/400" />
+
+
+  <image
+       y="0"
+       x="0"
+       id="big"
+       class="img"
+       height="200"
+       width="300"
+       xlink:href="http://placekitten.com/900/600" />
+
+  <image
+       y="0"
+       x="0"
+       id="huge"
+       class="img"
+       height="200"
+       width="300"
+       xlink:href="http://placekitten.com/1200/800" />
+ </g>
+</svg>
