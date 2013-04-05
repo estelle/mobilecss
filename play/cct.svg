@@ -4,11 +4,9 @@
   <!-- original by andreas bovens -->
   <defs>
   <style type="text/css">
-  .img {
-  display: none;
-  }
+
   @media screen and (min-width: 701px)  {
-  #huge {display: block}
+   rect {fill: url(http://placekitten.com/300/200);}
   }
   @media screen and (min-width: 501px) and (max-width: 700px) {
   #big {display: block}
@@ -20,7 +18,6 @@
   #small {display: block}
   }
   </style>
-  </defs>
 
   <image
        y="0"
@@ -58,5 +55,7 @@
        height="200"
        width="300"
        xlink:href="http://placekitten.com/1200/800" />
+</defs>
+<rect stroke="black" x="0" y="0" width="200" height="200"/>
  </g>
 </svg>
