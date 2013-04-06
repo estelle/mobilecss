@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="329">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="200">
  <g>
   <title>Simple SVG + mediaqueries</title>
   <defs>
@@ -16,9 +16,9 @@
        x="0"
        id="small"
        class="img"
-       height="329"
+       height="200"
        width="300"
-       xlink:href="small.png" />
+       xlink:href="http://placekitten.com/300/200" />
 </g>
  <g id="med">
   <title>Simple SVG + mediaqueries</title>
@@ -28,7 +28,7 @@
   display: none;
   }
 
-  @media screen and (min-width: 301px) and (max-width: 600px) {
+  @media screen and (min-width: 301px) and (max-width: 500px) {
   g#med {display: block}
   }
   </style>
@@ -38,9 +38,9 @@
        x="0"
        id="medium"
        class="img"
-       height="329"
+       height="200"
        width="300"
-       xlink:href="medium.png" />
+       xlink:href="http://placekitten.com/600/400" />
 </g>
 
  <g id="bg">
@@ -51,21 +51,19 @@
   display: none;
   }
 
-  @media screen and (min-width: 601px) and (max-width: 900px) {
+  @media screen and (min-width: 501px) and (max-width: 700px) {
   g#bg {display: block}
   }
-
   </style>
 </defs>
-
   <image
        y="0"
        x="0"
-       id="big"
+       id="medium"
        class="img"
-       height="329"
+       height="200"
        width="300"
-       xlink:href="big.png" />
+       xlink:href="http://placekitten.com/400/400" />
 </g>
 
  <g id="lg">
@@ -75,7 +73,7 @@
   g#lg {
   display: none;
   }
-  @media screen and (min-width: 901px)  {
+  @media screen and (min-width: 701px)  {
   g#lg {display: block}
   }
   </style>
@@ -85,9 +83,9 @@
        x="0"
        id="huge"
        class="img"
-       height="329"
+       height="200"
        width="300"
-       xlink:href="huge.png" />
+       xlink:href="http://placedog.com/g/1200/900" />
 
  </g>
 </svg>
