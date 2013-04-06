@@ -1,0 +1,448 @@
+<!doctype HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mobile CSS3: What you need to know</title>
+    <style></style>
+<link href="mobilecss.css" rel="stylesheet" media="projection, screen">
+
+<style>
+#presentation {background-color: #ccc;}
+body > header,
+body > footer {background-color: #666;}
+.cancel {
+  background-color:#888;
+  border-color: #333;
+}
+.done {
+  background-color: #444;
+  }
+</style>
+</head>
+<body>
+<header>
+<nav>
+<ul>
+	<li class="button cancel" id="back">Back</li>
+    <li class="button done" id="next">Next</li>
+</ul>
+<h1>Responsive CSS3</h1>
+</nav>
+</header>
+
+  <div id="presentation">
+   <div id="presentation-counter"></div>
+
+   <div id="slides">
+
+
+       <!-- Title Slide -->
+       <div class="slide normal">
+            <header>
+
+            </header>
+
+              <section>
+
+                   <h1 style="font-size: 4rem; color: #E65F00" >CSS3: Media Queries</h1>
+<div style="float:left; -webkit-transform:scale(0.75); -webkit-transform-origin: 0 0;"><img src="http://akamaicovers.oreilly.com/images/9780980846904/cat.gif" alt="HTML5 and CSS3 for the Real World" style="float: left;"><img src="http://akamaicovers.oreilly.com/images/0636920018063/cat.gif" alt="HTML5: The Definitive Guide" style="margin: 0 20px; float:right;"/><br/><img src="http://akamaicovers.oreilly.com/images/0636920021711/cat.gif" alt="MObile HTML5" style="margin: 0 20px 0 0; clear:left"/><img src="http://akamaicovers.oreilly.com/images/0636920025955/cat.gif" alt="Web Performance Daybook"/></div>
+
+                   <div style="float: right; margin-top: 100px;">Slides: <a href="http://estelle.github.com/mobilcss/responsive.html">estelle.github.com/mobilecss/responsive.html</a><br/>
+                   Name: Estelle Weyl
+       			<br>Blog: <a href="http://standardista.com">standardista.com</a>
+                   <br>Twitter: <a href="http://twitter.com/estellevw">@estellevw</a></p>
+                 </section>
+           </div>
+
+
+
+<div class="slide">
+  <header><h1>Varied Screen Sizes</h1></header>
+    <section class="content">
+      <ul class="sevenless">
+      <li>Smart Phone</li>
+      <li>Tablet</li>
+      <li>Laptop</li>
+      <li>Monitor</li>
+      <li>TV</li>
+      <li>Wrist Watch</li>
+      </ul>
+      <h2 class="temphidden">portrait v. landscape?</h2>
+      <h2 class="temphidden">high and low resolution?</h2>
+    </section>
+</div>
+
+<div class="slide intro">
+  <header><h1>This section:</h1>
+<h1 style="text-align: left">1.    Screen Size <br/>
+    2. Screen Resolution<br/>
+    3. <s>Device Capability</s><br/>
+    4. Browser Capability</h1>
+  </header>
+</div>
+
+
+<!-- media queries: browser support -->
+ <div class="slide normal">
+  <header><h1>media queries</h1></header>
+    <section class="content">
+    <pre contenteditable>&lt;link rel='stylesheet'
+<b>media='screen and (min-width: 320px) and (max-width: 480px)'</b><br/>href='css/smartphone.css' /&gt;</pre>
+  <pre contenteditable><b>@media screen and (max-width: 480px)</b>{
+  selector { /* small screen */
+    property: value;
+  }
+<b>}
+
+@media screen and (orientation: landscape)</b> {
+  selector { /* landscape properties */
+    property: value;
+  }
+<b>}</b>
+
+<b>@media screen and (-webkit-min-device-pixel-ratio: 1.5)</b> {
+  selector { /* properties for higher resolution screens */
+    property: value;
+  }
+<b>}</b>
+  </pre>
+    </section>
+</div>
+
+
+
+
+
+
+<!-- media queries: v 3 -->
+<div class="slide normal">
+  <header><h1>media query properties</h1></header>
+<section class="content"><ul>
+<li><em>(min/max)-width:</em> viewport width</li>
+<li><em>(min/max)-height:</em> viewport height</li>
+<li><em>(min/max)-device-width:</em> screen width</li>
+<li><em>(min/max)-device-height:</em> screen height</li>
+<li><em>orientation:</em> portrait(h>w) | landscape(w>h)</li>
+<li><em>(min/max)-aspect-ratio:</em> width/height</li>
+<li><em>(min/max)-device-aspect-ratio:</em> device-width/height</li>
+<li><em>(min/max)-resolution:</em> 72dpi | 100dpcm</li>
+</ul>
+<ul style="opacity: 0.3">
+<li><em>(min/max)-color:</em> </li>
+<li><em>(min/max)-color-index:</em> </li>
+<li><em>(min/max)-monochrome:</em> 0 | 1+</li>
+<li><em>scan:</em> progressive | interlace (tv) </li>
+<li><em>grid:</em> 0 | 1 (grids (like tty) or bitmap)</li>
+<li>See <a href="http://www.w3.org/TR/css3-mediaqueries/#media1">Media Queries Spec</a></li>
+</ul>
+<ul style="float: right" class="temphidden">
+  <li>case insensitive</li>
+  <li>unknown media types  == false</li>
+</ul>
+</section>
+
+</div>
+
+<div class="slide">
+  <header><h1>High Resolution Implementation</h1></header>
+    <section class="content">
+<p>Supported in Webkit Browsers</p>
+<pre contenteditable>-webkit-min-device-pixel-ratio: 2</pre>
+<p>Firefox up to FF 16</p>
+<pre contenteditable>min--moz-device-pixel-ratio: 2</pre>
+<p>The standard way</p>
+<pre contenteditable>min-resolution: 2dppx</pre>
+<p>dppx fallback</p>
+<pre contenteditable>min-resolution: 192dpi</pre>
+<ul style="float: right" class="temphidden">
+  <li>Parentheses around expressions are required</li>
+</ul>
+    </section>
+</div>
+
+
+<div class="slide object">
+  <object data="play/mediaqueries.html"></object>
+  <a href="files/mediaqueries.html" class="objectlink" target="play">Play</a>
+ </div>
+
+
+<!-- media queries: tidbits -->
+<div class="slide">
+  <header><h1>Media Query Syntax/Punctuation</h1></header>
+    <section class="content">
+      <p>"only" leaves out older browsers</p>
+    <pre contenteditable>media="<b>only</b> print and (color)"</pre>
+<p>"and" - both parts must be true</p>
+<pre contenteditable>media="only screen <b>and</b> (orientation: portrait)"
+</pre>
+<p>"not" - if untrue</p>
+<pre contenteditable>media="<b>not</b> screen and (color)"</pre>
+<p>Comma separates selectors - any part can be true</p>
+<pre contenteditable>media="print<b>,</b> screen and (min-width: 480px)"</pre>
+ </section>
+</div>
+
+<div class="slide object">
+  <header><h1>Media Break Points</h1></header>
+  <object data="http://whateverweb.com/"></object>
+  <a href="http://whateverweb.com/" class="objectlink" target="play">Visit Site</a>
+ </div>
+
+
+
+
+<!-- media queries: tidbits -->
+<div class="slide">
+  <header><h1>Device and Capability Detection</h1></header>
+    <section class="content">
+
+
+    <pre contenteditable>@media screen and (<b>-webkit-min-device-pixel-ratio</b>: 2) {
+ .iphone4 { /* high DPI */}
+}</pre>
+<pre contenteditable>
+@media screen and (<b>transform-3d</b>) {
+  .transforms {}
+}</pre>
+<pre contenteditable>
+@media screen and (min-width: 320px) and (max-width: 500px){
+  @-ms-viewport { width: device-width;}
+}
+</pre>
+<p>Also works with <code>(-prefix-animation)</code> and <code>(-prefix-transition)</code></p>
+    </section>
+</div>
+
+<div class="slide object">
+  <object data="play/supports.html"></object>
+  <a href="play/supports.html" class="objectlink" target="play">Play</a>
+ </div>
+
+<div class="slide object">
+  <object data="http://codepen.io/estelle/pen/ihsny"></object>
+  <a href="http://codepen.io/estelle/pen/ihsny" class="objectlink" target="play">Visit Site</a>
+ </div>
+
+
+
+
+<!-- media queries: browser support -->
+ <div class="slide normal">
+  <header><h1>Viewport</h1></header>
+    <section class="content">
+    <pre contenteditable>&lt;meta name="<strong>viewport</strong>" content="<strong>width</strong>=device-width,
+            <strong>initial-scale</strong>=1, <strong>maximum-scale</strong>=1"/&gt;</pre>
+    <dl class="deprecated">
+      <dt>width</dt>
+      <dd>Size of the viewport in number of pixels or <code>device-width</code> (width of screen)<dd>
+      <dt>height</dt>
+      <dd>Height of the viewport in number of pixels or <code>device-height</code> (height of screen)<dd>
+      <dt>initial-scale
+      <dd>zoom level when  page is first loaded</dd>
+      <dt>maximum-scale</dt>
+      <dt>minimum-scale</dt>
+      <dt>user-scalable</dt>
+      <dd>Are users  allowed to zoom the page</dd>
+    </dl>
+  <pre contenteditable>@viewport {
+  width: device-width; zoom: 0.5;
+}</pre>
+ <dl class="deprecated">
+  <dt>min-width</dt>
+  <dd>‘auto’, ‘device-width’, ‘device-height’, an absolute length, or a percentage as specified</dd>
+  <dt>max-width</dt>
+  <dd>‘auto’, ‘device-width’, ‘device-height’, an absolute length, or a percentage as specified</dd>
+  <dt>width</dt>
+  <dt>min-height</dt>
+  <dd>‘auto’, ‘device-width’, ‘device-height’, an absolute length, or a percentage as specified</dd>
+  <dt>max-height</dt>
+  <dd>‘auto’, ‘device-width’, ‘device-height’, an absolute length, or a percentage as specified</dd>
+  <dt>height</dt>
+  <dt>zoom</dt>
+  <dd>auto, positive number or percentage</dd>
+  <dt>min-zoom</dt>
+  <dd>Minimum zoom factor allowed. auto, positive number or percentage</dd>
+  <dt>max-zoom</dt>
+  <dd>Maximum zoom factor allowed. auto, positive number or percentage</dd>
+  <dt>user-zoom</dt>
+  <dd>zoom or fixed. User can or can't zoom in/out.</dd>
+  <dt>orientation</dt>
+  <dd>auto, portrait or landscape.</dd>
+  </dl>
+  <pre>@media screen and (max-width:400px) {
+  @-ms-viewport { width:320px; // or device-width;}
+}</pre>
+</section>
+</div>
+
+<div class="slide">
+  <header><h1>Viewport Sidenote</h1></header>
+    <section class="content">
+      <p>If &lt;meta&gt; is set to disable zoom, in Chrome and Firefox there is no delay on onClick events.<p>
+    </section>
+</div>
+
+<!-- mobile specific CSS -->
+<div class="slide">
+  <header><h1>Mobile Specific CSS</h1></header>
+    <section class="content">
+      <p>Tap Highlight Color</p>
+<pre contenteditable> -webkit-tap-highlight-color: #bada55;</pre>
+<p>Prevent Select &amp; Hold dialogue</p>
+<pre contenteditable> -webkit-user-select: none;</pre>
+<p>Prevent Images Dialog</p>
+<pre contenteditable> -webkit-touch-callout: none;</pre>
+<p>Prevent accidental OS popups (panning)</p>
+<pre contenteditable>-ms-touch-action: none;</pre>
+    </section>
+</div>
+
+
+<div class="slide object">
+
+  <header><h1>Relative width</h1></header>
+  <object data="play/typowidth.html"></object>
+  <a href="play/typowidth.html" class="objectlink" target="play">Play</a>
+</div>
+
+
+<div class="slide object">
+
+  <header><h1>CSS Hyphenations, &lt;WBR&gt; and &amp;Shy;</h1></header>
+  <object data="play/hyphens.html"></object>
+  <a href="play/hyphens.html" class="objectlink" target="play">Play</a>
+</div>
+
+ <div class="slide" id="columnpage">
+          <header> <h1>Columns</h1></header>
+          <section class="content" style="margin-top:0">
+          <pre contenteditable>
+<u></u>column-count: <span id="colcnt">1</span>;      <input id="columncounts" type="range" min="1" max="10" value="2" onChange="changeColumnNoSlider(event)">
+<u></u>column-width: <span id="colwidth">10</span>em;   <input id="columnwidth" type="range" min="1" max="40" step="1" value="10" onChange="changeColumnNoSlider(event)">
+<u></u>column-rule: 1px solid #bbb;
+<u></u>column-gap: <span id="colgap">2</span>em;      <input id="columngaps" type="range" min="0" max="10" step="0.1" value="2" onChange="changeColumnNoSlider(event)"></pre>
+
+            <div id="columnsslide" class="example">
+              <p>Adipisicing rump nostrud exercitation turkey, bresaola deserunt ullamco beef ribs pork loin ball tip pig pork belly nisi. Cillum sunt officia deserunt, beef aliqua ham ut t-bone sed ut consequat shoulder. Nostrud excepteur biltong non, fatback salami incididunt beef cupidatat occaecat. </p>
+              <p>Reprehenderit ham hock labore tri-tip chuck, excepteur ut. Meatball sint enim beef ribs, mollit laborum flank commodo fatback pariatur tail rump eiusmod spare ribs dolore. Ut minim qui, tongue eu short ribs pancetta excepteur incididunt culpa consequat pastrami magna chuck. Flank sunt sint, occaecat ut adipisicing labore turkey laboris in magna.</p>
+
+<p>Chicken bacon meatloaf minim meatball salami sunt spare ribs.</p><p> Bacon sed tail, pork loin pariatur meatloaf hamburger exercitation corned beef shank ex esse sirloin qui beef ribs. Consectetur anim corned beef, cupidatat ex enim tempor. Pariatur consectetur ad, enim ut quis consequat aliquip exercitation jowl tenderloin ham dolore. </p><p>Fugiat excepteur aliqua, cow dolor swine shoulder elit tri-tip shankle. Irure consectetur cow labore, cupidatat exercitation ea jerky ham officia dolore tongue eu aliqua. Ham hock irure beef ribs non, flank sausage eiusmod ham short loin nostrud.
+</p>
+            </div>
+
+<p>Prefix -webkit &amp; -moz. Supported since IE 10, O 11.1, all webkit, all FF</p>
+          </section>
+
+          <script defer="">
+            function changeColumnNoSlider(event) {
+        var columngaps = roundNumber(document.getElementById('columngaps').value, 1);
+        var columnwidth = document.getElementById('columnwidth').value;
+              var count =  document.getElementById('columncounts').value;
+              document.getElementById('colgap').textContent = columngaps;
+              document.getElementById('colwidth').textContent = columnwidth;
+              document.getElementById('colcnt').textContent = count;
+              var example = document.getElementById('columnsslide');
+              example.style.webkitColumnCount = count;
+              example.style.MozColumnCount = count;
+              example.style.columnCount = count;
+              example.style.webkitColumnGap = columngaps + "em";
+              example.style.MozColumnGap = columngaps + "em";
+              example.style.columnGap = columngaps + "em";
+              example.style.webkitColumnWidth = columnwidth + "em";
+              example.style.MozColumnWidth = columnwidth + "em";
+              example.style.columnWidth = columnwidth + "em";
+              example.style.webkitColumnRule = "1px solid #bbb";
+              example.style.mozColumnRule = "1px solid #bbb";
+              example.style.columnRule = "1px solid #bbb";
+            }
+      function roundNumber(num, dec) {
+        var result = Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
+        return result;
+      }
+          </script>
+</div>
+
+
+
+
+
+<div class="slide object">
+  <header><h1>CSS3 Columns</h1></header>
+  <object data="play/columns.html"></object>
+  <a href="play/columns.html" class="objectlink" target="play">Play</a>
+</div>
+
+
+<!-- SVG Media Queries -->
+<div class="slide object">
+  <header><h1>Media Queries in SVG</h1></header>
+  <object data="play/circlesvg.html"></object>
+  <a href="play/circlesvg.html" class="objectlink" target="play">Play</a>
+ </div>
+
+<!-- SVG Media Queries -->
+<div class="slide object">
+  <header><h1>Media Queries in SVG</h1></header>
+  <object data="play/circlesvgimg.html"></object>
+  <a href="play/circlesvgimg.html" class="objectlink" target="play">Play</a>
+ </div>
+
+ <!-- SVG Media Queries -->
+<div class="slide object">
+  <header><h1>Clown Car Technique</h1></header>
+  <object data="play/svgimg.html"></object>
+  <a href="play/svgimg.html" class="objectlink" target="play">Play</a>
+ </div>
+
+  <!-- SVG Media Queries -->
+<div class="slide object">
+  <header><h1>Clown Car Technique</h1></header>
+  <object data="play/adaptiveimages.html"></object>
+  <a href="play/adaptiveimages.html" class="objectlink" target="play">Play</a>
+ </div>
+
+<div class="slide intro">
+  <header><h1>Up Next: </h1></header>
+    <section class="content">
+      <h1><a href="../selectors/30.html">CSS3 Selectors</a></h1>
+
+      <p><a href="../selectors/30.html">short</a> |
+      <a href="../selectors/">longer</a></p>
+    </section>
+</div>
+
+
+
+
+<!-- Thank you -->
+<div class="slide normal">
+     <header>
+      <h1>Thank you</h1>
+     </header>
+
+       <section>
+            <div style="float:right"><img src="http://akamaicovers.oreilly.com/images/9780980846904/cat.gif" alt="HTML5 and CSS3 for the Real World"><img src="http://akamaicovers.oreilly.com/images/0636920018063/cat.gif" alt="HTML5: The Definitive Guide" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920021711/cat.gif" alt="MObile HTML5" style="margin: 0 20px;"/><img src="http://akamaicovers.oreilly.com/images/0636920025955/cat.gif" alt="Web Performance Daybook"/></div>
+            <ul class="sevenless">
+              <li>Estelle Weyl</li>
+              <li><a href="http://standardista.com">standardista.com</a></li>
+              <li><a href="http://twitter.com/estellevw">@estellevw</a></li>
+            </ul>
+		  </section>
+    </div>
+
+
+
+  </div>
+  </div>
+
+ <footer>
+<p style="float: left;">Press <span class="button">&rarr;</span> key to advance.</p> <p style="float:right"><a href="http://www.twitter.com/estellevw">@estellevw</a> &middot; <a href="http://estelle.github.com/mobilecss/">Estelle.Github.com/mobilecss/</a></p>
+</footer>
+  <script src="mobilecss.js"></script>
+
+
+  </body>
+
+</html>
+
