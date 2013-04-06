@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="300px" height="329px" viewBox="0 0 300 329" enable-background="new 0 0 300 329" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+]]>
+</style>
+<g id="sm">
+	<image overflow="visible" enable-background="new    " width="300" height="329" id="small" xlink:href="small.png" >
+	</image>
+	<rect x="170.5" y="14" fill="none" width="105" height="27"/>
+	<text transform="matrix(1 0 0 1 170.5 22.52)" font-family="'MyriadPro-Regular'" font-size="12">small</text>
+</g>
+<g id="med">
+	
+		<image overflow="visible" enable-background="new    " width="600" height="658" id="medium" xlink:href="medium.png"  transform="matrix(0.5 0 0 0.5 0 0)">
+	</image>
+	<rect x="32.5" y="285" fill="none" width="113" height="31"/>
+	<text transform="matrix(1 0 0 1 32.5 293.5195)" font-family="'MyriadPro-Regular'" font-size="12">medium</text>
+</g>
+<g id="bg">
+	
+		<image overflow="visible" enable-background="new    " width="900" height="987" id="big" xlink:href="big.png"  transform="matrix(0.3333 0 0 0.3333 0 0)">
+	</image>
+	<rect x="16.5" y="58" fill="none" width="109" height="30"/>
+	<text transform="matrix(1 0 0 1 16.5 66.52)" font-family="'MyriadPro-Regular'" font-size="12">large</text>
+</g>
+<g id="lg">
+	
+		<image overflow="visible" enable-background="new    " width="1200" height="1316" id="huge" xlink:href="huge.png"  transform="matrix(0.25 0 0 0.25 0 0)">
+	</image>
+	<rect x="25.5" y="177" fill="none" width="114" height="25"/>
+	<text transform="matrix(1 0 0 1 25.5 185.5195)" font-family="'MyriadPro-Regular'" font-size="12">X-Large</text>
+</g>
+</svg>
