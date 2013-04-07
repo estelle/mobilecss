@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Original iPhone Look and feel</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<style>
+body, ul, li {
+	margin:0;
+	padding:0;
+	font-family: Helvetica;
+}
+body {background-color:#C5CCD4;
+	  /* Create the background for the main area */
+
+	  /* old webkit only gradient for older devices */
+
+	  /* prefixed gradient for the majority of devices */
+
+	  /* non-prefixed w3 standard gradient for modern devices */
+
+   /* we declare background size for repeating. If you want a challenge, get ride of background size and declare repeating linear gradients instead */
+	 -moz-background-size:7px 1px;
+	 background-size:7px 1px;
+	 background-repeat:repeat;
+}
+h1 {
+	color: white;
+	font-family: Helvetica;
+	font-size: 20px;
+	font-weight: bold;
+	margin: auto;
+	overflow: hidden;
+	text-align: center;
+	text-overflow: ellipsis;
+	text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0px;
+	white-space: nowrap;
+	width: 150px;
+}
+header {
+
+	  /* Create the background for the header bar */
+
+	  /* old webkit only gradient for older devices */
+
+	  /* prefixed gradient for the majority of devices */
+
+	  /* non-prefixed w3 standard gradient for modern devices */
+
+
+ 	padding: 7px 10px;
+	background-color: rgb(109, 132, 162);
+	border-bottom-color:1px solid rgb(45, 54, 66);
+	border-top:1px solid rgb(109, 132, 162);
+	display: block;
+	height: 31px;
+	line-height: 30px;
+	display: block;
+	border-bottom: 1px solid #2C3542;
+	border-top: 1px solid #CDD5DF;
+}
+.button {
+	color: #FFFFFF;
+	text-decoration: none;
+
+	  /* Create the background for the buttons */
+
+	  /* old webkit only gradient for older devices */
+
+	  /* prefixed gradient for the majority of devices */
+
+	  /* non-prefixed w3 standard gradient for modern devices */
+
+   /* we declare background size for repeating. If you want a challenge, get ride of background size and declare repeating linear gradients instead */
+
+	text-shadow:  0 -1px 0 rgba(0, 0, 0, 0.6);
+	overflow: hidden;
+	max-width: 80px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-family: Helvetica;
+	font-size: 12px;
+	font-weight:bold;
+	border-radius: 4px;
+	height:30px;
+	padding: 0 10px;
+	 background-size: 100% 50%;
+	 background-repeat:no-repeat;
+	 border: 1px solid #2F353E;
+	box-shadow:
+	 		0 1px 0 rgba(255,255,255, 0.4),
+			inset 0 1px 0 rgba(255,255,255,0.4);
+	}
+.nav li {padding: 8px;}
+.cancel {
+	float:left;
+	background-color:#4A6C9B;
+	border-color: #2F353E #375073 #375073;
+}
+.done {
+	float: right;
+	background-color: #2463DE;
+	}
+article ul{
+	width: 300px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	border: 1px solid #A8ABAE;
+	display: block;
+	margin: 10px auto;
+}
+article li {
+ list-style-type:none;
+ line-height: 44px;
+ border-top:1px solid #A8ABAE;
+ padding: 0 10px;
+
+ }
+ /* change the following selector to pick the first list item */
+article ul lix {
+	border-top:none;
+}
+</style>
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+	<li class="button cancel">Cancel</li>
+    <li class="button done">Done...</li>
+</ul>
+<h1>Languages</h1>
+</nav>
+</header>
+<article>
+<ul>
+<li>English</li>
+<li lang="fr-fr">Français</li>
+<li lang="es-es">Español</li>
+</ul>
+</article>
+<script>
+			addEventListener("load", function() {
+				setTimeout(hideURLbar, 0); }, false);
+				function hideURLbar(){
+				window.scrollTo(0,1);
+			}
+</script>
+</body>
+</html>
