@@ -1,24 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="200">
  <g>
-  <title>Simple SVG + mediaqueries</title>
-  <!-- original by andreas bovens -->
+  <title>Responsive Kittens</title>
   <defs>
   <style type="text/css">
 
   @media screen and (min-width: 701px)  {
-   rect {fill: url(http://placekitten.com/300/200);}
+   #huge {display: block}
+   #small {display: none;}
   }
   @media screen and (min-width: 501px) and (max-width: 700px) {
   #big {display: block}
+   #small {display: none;}
   }
   @media screen and (min-width: 301px) and (max-width: 500px) {
   #medium {display: block}
-  }
-  @media screen and (max-width: 300px) {
-  #small {display: block}
+   #small {display: none;}
   }
   </style>
-
+  </defs>
   <image
        y="0"
        x="0"
@@ -55,7 +54,6 @@
        height="200"
        width="300"
        xlink:href="http://placekitten.com/1200/800" />
-</defs>
-<rect stroke="black" x="0" y="0" width="200" height="200"/>
+
  </g>
 </svg>
