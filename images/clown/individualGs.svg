@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="329">
  <g>
   <title>Simple SVG + mediaqueries</title>
   <defs>
@@ -16,7 +16,7 @@
        x="0"
        id="small"
        class="img"
-       height="200"
+       height="329"
        width="300"
        xlink:href="small.png" />
 </g>
@@ -38,7 +38,7 @@
        x="0"
        id="medium"
        class="img"
-       height="200"
+       height="329"
        width="300"
        xlink:href="medium.png" />
 </g>
@@ -61,7 +61,7 @@
        x="0"
        id="medium"
        class="img"
-       height="200"
+       height="329"
        width="300"
        xlink:href="medium.png" />
 </g>
@@ -83,7 +83,7 @@
        x="0"
        id="huge"
        class="img"
-       height="200"
+       height="329"
        width="300"
        xlink:href="huge.png" />
 
