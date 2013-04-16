@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>CSS3 &amp; Mobile Performance</title>
+    <title>Mobile CSS3: What you need to know</title>
     <style></style>
 <link href="mobilecss.css" rel="stylesheet" media="projection, screen">
 
@@ -14,7 +14,7 @@
 	<li class="button cancel" id="back">Back</li>
     <li class="button done" id="next">Next</li>
 </ul>
-<h1>CSS3 &amp; Mobile Performance</h1>
+<h1>Mobile CSS3</h1>
 </nav>
 </header>
 
@@ -32,7 +32,7 @@
 
               <section>
 
-                   <h1 style="font-size: 4rem; color: #E65F00" >CSS3 &amp; Mobile Performance</h1>
+                   <h1 style="font-size: 4rem; color: #E65F00" >Mobile CSS3:<br/> Pointers and Pitfalls in the mobile space</h1>
 <div style="float:left; -webkit-transform:scale(0.75); -webkit-transform-origin: 0 0;"><img src="http://akamaicovers.oreilly.com/images/9780980846904/cat.gif" alt="HTML5 and CSS3 for the Real World" style="float: left;"><img src="http://akamaicovers.oreilly.com/images/0636920018063/cat.gif" alt="HTML5: The Definitive Guide" style="margin: 0 20px; float:right;"/><br/><img src="http://akamaicovers.oreilly.com/images/0636920021711/cat.gif" alt="MObile HTML5" style="margin: 0 20px 0 0; clear:left"/><img src="http://akamaicovers.oreilly.com/images/0636920025955/cat.gif" alt="Web Performance Daybook"/></div>
 
                    <div style="float: right; margin-top: 100px;">Slides: <a href="http://estelle.github.com/mobilcssv">estelle.github.com/mobilecss</a><br/>
@@ -186,151 +186,16 @@ A complex page means more bytes to download, and it also means slower DOM access
 
      </header>
      <section>
-     <ul class="sevenless" style="margin-bottom: 4rem">
-
-        <li>UI responsiveness</li><li>Battery Life</li>
+     <ul class="sevenless">
+        <li>Battery Life</li>
       <li>Latency</li>
         <li>Memory</li>
+        <li>UI responsiveness</li>
         <li>Plethora of Screen Sizes</li>
      </ul>
-    <h2>Phones aren't Laptops</h2>
-    <h2>More powerful browsers. <br/>Less powerful CPUs</h2>
-   </section>
-  </div>
-
-
-<div class="slide intro">
-  <header><h1>UI Responsiveness</h1></header>
-    <section class="content">
-    </section>
-</div>
-
-<!-- touch events -->
-<div class="slide normal" style="background-image:url(images/gestures.gif); background-size:80%; background-position: 50% 90%">
-<header>
-<h1>UI responsiveness - Touch Events</h1>
-</header>
-<section>
-<div style="background-image:url(images/touch.gif), url(images/thumbup.jpg), url(images/butler.jpg); background-color:rgba(255,255,255,0.85);  background-position: 5% bottom, 45% 95%, 95% 98%; width: 70%; margin: auto; padding: 20px; padding-bottom: 100px; min-height: 100px;  border: solid #ccc; border-radius: 15px;">
-
-<ul class="sevenless">
-    <li>Touch Event: 300 - 500ms delay</li>
-    <li>Extra touches aren't forgotten</li>
-    <li>Co-opt with touch events with JS
-      <ol>
-      <li>Accept input</li>
-      <li>Provide user feedback</li>
-      <li>Update the UI</li>
-      </ol>
-    </li>
-</ul>
-</div>
-
-<footer>Credit: <a href="http://www.lukew.com/touch/TouchGestureGuide.pdf">Luke W.</a></footer>
-</section>
-</div>
-
-
-
-<div class="slide normal current">
-  <header><h1>Viewport</h1></header>
-    <section class="content">
-    <pre contenteditable="">&lt;meta name="<strong>viewport</strong>" content="<strong>width</strong>=device-width,
-            <strong>initial-scale</strong>=1, <strong>maximum-scale</strong>=1"/&gt;</pre>
-    <dl class="deprecated">
-      <dt>width</dt>
-      <dd>Size of the viewport in number of pixels or <code>device-width</code> (width of screen)</dd><dd>
-      </dd><dt>height</dt>
-      <dd>Height of the viewport in number of pixels or <code>device-height</code> (height of screen)</dd><dd>
-      </dd><dt>initial-scale
-      </dt><dd>zoom level when  page is first loaded</dd>
-      <dt>maximum-scale</dt>
-      <dt>minimum-scale</dt>
-      <dt>user-scalable</dt>
-      <dd>Are users  allowed to zoom the page</dd>
-    </dl>
-  <pre contenteditable="">@viewport {
-  width: device-width; zoom: 0.5;
-}</pre>
- <dl class="deprecated">
-  <dt>min-width</dt>
-  <dd>‘auto’, ‘device-width’, ‘device-height’, an absolute length, or a percentage as specified</dd>
-  <dt>max-width</dt>
-  <dd>‘auto’, ‘device-width’, ‘device-height’, an absolute length, or a percentage as specified</dd>
-  <dt>width</dt>
-  <dt>min-height</dt>
-  <dd>‘auto’, ‘device-width’, ‘device-height’, an absolute length, or a percentage as specified</dd>
-  <dt>max-height</dt>
-  <dd>‘auto’, ‘device-width’, ‘device-height’, an absolute length, or a percentage as specified</dd>
-  <dt>height</dt>
-  <dt>zoom</dt>
-  <dd>auto, positive number or percentage</dd>
-  <dt>min-zoom</dt>
-  <dd>Minimum zoom factor allowed. auto, positive number or percentage</dd>
-  <dt>max-zoom</dt>
-  <dd>Maximum zoom factor allowed. auto, positive number or percentage</dd>
-  <dt>user-zoom</dt>
-  <dd>zoom or fixed. User can or can't zoom in/out.</dd>
-  <dt>orientation</dt>
-  <dd>auto, portrait or landscape.</dd>
-  </dl>
-<p>If &lt;meta> is set to disable zoom, in Chrome and Firefox there is no delay on onClick events.</p>
-</section>
-<span class="counter">13</span></div>
-
-
-<!-- BATTERY -->
-<div class="slide normal">
-     <header><h1>Batteries</h1>
-     </header>
-     <section style="background-image:url(images/carbattery.jpeg) , url(images/battery.jpg); background-position: bottom left, 80% 90%; background-size: auto, 130px;height:600px;">
-
+     <h2 style="position:absolute; bottom: 50px; right: 0; left: 0;">Phones aren't Laptops</h2>
      </section>
     </div>
-
-
-<!-- Battery -->
-<div class="slide normal"><header>
-      <h1>Battery</h1>
-     </header>
-     <section class="content">
-
-<h2>Images</h2>
-<ul class="sevenless">
-<li>JPEGs <strong title="perform better than">≻</strong> GIFs and PNGs</li>
-<li>Images ⇒ energy consumption</li>
-<li>Rendering energy is proportional to # and size of images.</li>
-</ul>
-<h2>JavaScript</h2>
-<ul class="sevenless">
-<li><em>Render cost:</em> JS (and CSS) <strong title="can be as expensive to render as">≃</strong> images</li>
-<li><em title="(like XMLHttpRequest)">Dynamic JS:</em> ⬆ rendering cost (can't be cached). </li>
-<li>JS (download, parsing &amp; executing) can be the most energy consuming web page component
-    </section>
-</div>
-
-<div class="slide">
-  <header><h1>JavaScript drains the battery</h1></header>
-    <section class="content">
-<ul class="sevenless">
-<li>All scripts loaded and parsed (even if not used)</li>
-<li>Reduce JS to only what is needed</li>
-<li>Are libraries really necessary?
-<ul>
-  <li>Include only functions used by page to reduces
-
-energy use.</li>
-  <li>Goal of most: equalize across browsers <br> (not necessry in mobile space)</li>
-<li>Libraries simplify web
-
-development, but increase energy use.</li>
-<li><a href="http://estelle.github.com/jsframeworks">You don't need a framework for that</a></li></ul></li></ul>
-   </section>
- </div>
-
-
-
-
 
 <!-- BATTERY -->
 <div class="slide normal">
@@ -346,20 +211,11 @@ development, but increase energy use.</li>
           <li>Minimize JavaScript (size and activity)</li>
           <li>No JavaScript animations</li>
           <li>Do you really need library/framework?</li>
-          <li>Use darker colors if you can</li>
         </ul>
      </section>
-        <footer>Resource: <a href="http://www2012.org/proceedings/proceedings/p41.pdf">Who killed my battery - PDF</a></footer>
+        <footer><a href="http://www2012.org/proceedings/proceedings/p41.pdf">Who killed my battery - PDF</a></footer>
 </div>
-<!-- TERM:  Latency -->
-<div class="slide intro" style="background:url(images/latencykills.jpg) bottom center no-repeat #ffffff;">
-     <header>
-      <h1>Latency</h1>
-     </header>
-     <section>
-     <footer class="credit">Photo: <a href="http://www.flickr.com/photos/tby/1472668838/">T Bryce Yehl</a></footer>
-     </section>
-    </div>
+
 
 <!-- Normal DNS -->
 <div class="slide normal">
@@ -372,97 +228,6 @@ development, but increase energy use.</li>
     <p style="text-align:center; position:absolute; bottom: 40px; width: 100%;">Each host is a different lookup!!</p>
   </section>
 </div>
-
-
-
-
-<!-- Mobile DNS -->
-<div class="slide normal">
-    <header>
-      <h1>Latency</h1>
-    </header>
-    <section>
-        <img src="images/latency.gif" style="margin: 40px auto" alt="Computer asks DNS server for IP address, then goes to IP to get website" />
-        <ul>
-            <li><strong>Issue:</strong> Requests take longer to complete</li>
-            <li><strong>Solution:</strong> Reducing requests improves performance</li>
-        </ul>
-    </section>
-</div>
-
-
-
-
-<div class="slide intro">
-  <header><h1>Step 1: Don't Redirect!!!!</h1></header>
-    <section class="content">
-    </section>
-</div>
-<div class="slide intro">
-  <header><h1>Step 2: Reduce Requests</h1><h2>Sprites</h2></header>
-    <section class="content">
-    <img src="images/sprite.jpg" alt="Favicon Image Sprite"/style="margin: 200px;">
-    </section>
-</div>
-
-
-<div class="slide normal">
-<header><h1>Best Practices (for desktop)</h1></header>
-<section class="content">
-<pre contenteditable style="font-size: 1.4rem;">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
- &lt;head&gt;
-   &lt;meta charset=&quot;UTF-8&quot;&gt;
-   &lt;title&gt;Titles are good for SEO&lt;/title&gt;
-   <strong>&lt;link rel=&quot;stylesheet&quot; href=&quot;prettyWhenItLoads.<strong>css</strong>&quot;/&gt;</strong>
- &lt;/head&gt;
- &lt;body&gt;
-   &lt;!-- lots of good content --&gt;
-  <strong> &lt;script src=&quot;dontBlockHTMLandCSS.<strong>js</strong>&quot;&gt;&lt;/script&gt;</strong>
- &lt;/body&gt;
-&lt;/html&gt;</pre>
-</section>
-</div>
-
-<div class="slide normal">
-<header><h1>Reduce HTTP requests</h1></header>
-<section class="content">
-<pre contenteditable style="font-size: 1.4rem;">&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
- &lt;head&gt;
-   &lt;meta charset=&quot;UTF-8&quot;&gt;
-   &lt;title&gt;Titles are good for SEO&lt;/title&gt;
-   <strong>&lt;style id="keyword"&gt;
-     /* lots of styles */
-   &lt;/style&gt;</strong>
- &lt;/head&gt;
- &lt;body&gt;
-   &lt;!-- lots of good content --&gt;
-   <strong>&lt;script id="otherKey"&gt;
-     /* JS that makes site work
-   &lt;/script&gt;</strong>
-   <span class="temphidden em"><img src="images/bingkb.gif" class="temphidden" style="float: right; position:relative; top: -200px;"/><strong>&lt;script&gt;
-     /* localStorage &amp;  cookies script*/
-   &lt;/script&gt;</strong></span>
- &lt;/body&gt;
-&lt;/html&gt;</pre>
-</section>
-</div>
-
-
-
-<!-- TERM: Memory -->
-<div class="slide intro black" style="background-image:url(images/memory.gif); background-color: black; background-position: bottom;">
-    <header>
-      <h1 style="color: white;">Memory</h1>
-    </header>
-    <section  style="padding-top: 230px;color: white;">
-      <p class="temphidden">High memory usage causes a slow UI</p>
-      <p class="temphidden" style="margin: 1.4rem 0">When you are out of memory, you are out of memory</p>
-        <p class="temphidden">Browser crashes to free up memory</p>
-    </section>
-</div>
-
 
 <!-- Device Memory: CPU comparison -->
 <div class="slide normal">
@@ -516,9 +281,9 @@ development, but increase energy use.</li>
         </tr>
     </tbody>
     </table>
-<p style="margin: 1.4rem 0"><strong>Mobile Norm:</strong> 512MB of RAM, with 1GHz Processor<br/><strong style="opacity: 0;">Mobile Norm:</strong> Moving toward 1GB RAM</p>
-<p style="text-align: center;">Developing without mobile in mind<br/>
-leads to sloppy App Dev</p>
+<p><strong>Mobile Norm:</strong> 512MB of RAM, with 1GHz Processor<br/><strong style="opacity: 0;">Mobile Norm:</strong> Moving toward 1GB RAM</p>
+<h2 class="text-align: center;">Developing without mobile in mind <br>
+leads to sloppy App Dev</h2>
  </section>
 </div>
 
@@ -571,68 +336,30 @@ leads to sloppy App Dev</p>
 
 
 
-<div class="slide">
-  <header><h1>Sprites: Best choice?</h1></header>
-    <section class="content">
-    <img src="images/sprite.jpg" alt="Favicon Image Sprite"/style="margin: 200px;">
-    </section>
+<!-- touch events -->
+<div class="slide normal" style="background-image:url(images/gestures.gif); background-size:80%; background-position: 50% 90%">
+<header>
+<h1>UI responsiveness - Touch Events</h1>
+</header>
+<section>
+<div style="background-image:url(images/touch.gif), url(images/thumbup.jpg), url(images/butler.jpg); background-color:rgba(255,255,255,0.85);  background-position: 5% bottom, 45% 95%, 95% 98%; width: 70%; margin: auto; padding: 20px; padding-bottom: 100px; min-height: 100px;  border: solid #ccc; border-radius: 15px;">
+
+<ul class="sevenless">
+    <li>Touch Event: 300 - 500ms delay</li>
+    <li>Extra touches aren't forgotten</li>
+    <li>Co-opt with touch events with JS
+      <ol>
+      <li>Accept input</li>
+      <li>Provide user feedback</li>
+      <li>Update the UI</li>
+      </ol>
+    </li>
+</ul>
 </div>
 
-<!--GZip does not suffice -->
-<div class="slide normal">
-     <header>
-      <h1>Not enough to <big>GZip</big></h1>
-     </header>
-     <section class="big">
-
-     <p style="margin: 0 -20px;"><img src="images/gzipbig.png" alt="" style="vertical-align:middle">
-    <img src="images/arrow.png" alt="" style="vertical-align:middle">
-     <img src="images/gzipsmall.jpg" alt="" style="vertical-align:middle">
-     <img src="images/arrow.png" alt="" style="vertical-align:middle">
-     <img src="images/gzipbig.png" alt="" style="vertical-align:middle"></p>
-     <p style="text-align:center;" class="em">Rendered media are still the same size.</p>
-     <ul class="sevenless">
-       <li>         Reduce File Size       </li>
-       <li>         Reduce Image Size       </li>
-     </ul>
-     <p class="notes">Video, Audio, Images and Text can be compressed to save bandwidth, but they're uncompressed in the browser.</p>
-     </section>
-    </div>
-
-<!-- Reduce File Size - ImageAlpha -->
-<div class="slide normal">
-     <header>
-      <h1>Reduce File Size</h1>
-     </header>
-     <section>
-
-     <img src="images/imagealpha.jpg" alt="images alpha saving 64% file size" width="700" style="margin:auto; display:block">
-     <h1>Image Alpha <img src="images/ImageAlpha_med.png" alt="" style="vertical-align:middle"></h1>
-     <footer class="credit"><a href="http://pngmini.com/">www.pngmini.com/</a></footer>
-     </section>
-    </div>
-
-
-<!-- Reduce Image Size - Sencha IO-->
-<div class="slide normal">
-    <header>
-      <h1>Reduce Image Size</h1>
-    </header>
-    <section style="background:url(images/tinySrc.jpg) top no-repeat; min-height:500px; background-size: contain; padding:20px;">
-    <p style="color:#fff; padding-top: 40px; line-height: 1.4;text-shadow:1px 1px 3px #000,-1px -1px 3px #000; font-weight:bold;">Don't send <big>big</big> images to <small>small</small> screens?<br>
-Images <big>1024px</big> or bigger are too <big>big</big> for memory</p>
-<p style="margin-top: 225px;"><a href="http://src.sencha.io/320/480/http://kittenssite.com/kitten.jpg" target="play" style="color: white; text-shadow: 2px 2px 1px black, -2px -2px 1px black;">http://src.sencha.io/320/480/http://unicorns.com/kitten.jpg</a></p>
-<p>&lt;picture&gt;</p>
-<p>srcset attribute</p>
-<p>Clown Car Technique</p>
-    </ul>
-    <img src="images/senchio.gif" alt="sencha uses user agent sniffing,not browser size" class="temphidden" style="position: absolute; right: 10px; top: 200px;"/>
-   <footer class="credit">Photo: <a href="http://www.hdwallpapers4ipad.com/photo/abstract_backgrounds/broken_screen/2-0-1568">hdwallpapers4ipad.com</a></footer>
-    </section>
+<footer>Credit: <a href="http://www.lukew.com/touch/TouchGestureGuide.pdf">Luke W.</a></footer>
+</section>
 </div>
-
-<!-- media queries -->
-
 
 <div class="slide">
   <header><h1>Varied Screen Sizes</h1></header>
@@ -650,159 +377,79 @@ Images <big>1024px</big> or bigger are too <big>big</big> for memory</p>
     </section>
 </div>
 
-
-
-
-<!-- media queries: browser support -->
- <div class="slide normal">
-  <header><h1>media queries</h1></header>
+<div class="slide intro">
+  <header><h1>Screen Size</h1></header>
     <section class="content">
-    <pre contenteditable style="font-size: 100%;">&lt;link rel='stylesheet'
-<b>media='screen and (min-width: 320px) and (max-width: 480px)'</b><br/>href='css/smartphone.css' /&gt;</pre>
-  <pre contenteditable style="font-size: 110%;"><b>@media screen and (max-width: 480px)</b>{
-  body {
-    background-image: url(small/bgimage.jpg);
-  }
-}
-<b>@media screen and (min-width: 481px) and (max-width: 960px)</b>{
-  body {
-    background-image: url(medium/bgimage.jpg);
-  }
-}
-<b>@media screen and (min-width: 481px) and (max-width: 960px),
-screen and (min-width:540px) and (-webkit-min-device-pixel-ratio: 2)</b>{
-  body {
-    background-image: url(large/bgimage.jpg);
-  }
- } </pre>
+      <h1><a href="responsive.html">Media Queries</a></h1>
+
+      <p><a href="responsive.html">short</a> |
+      longer</p>
+    </section>
 </div>
 
 
+<div class="slide intro">
+  <header><h1>Back to the Basics</h1></header>
+    <section class="content">
+      <h1><a href="../selectors/30.html">CSS3 Selectors</a></h1>
 
-
-
-
-<!-- media queries: v 3 -->
-<div class="slide normal">
-<header><h1>Resource: What can you query</h1></header>
-<section class="content"><ul>
-<li><em>(min/max)-width:</em> viewport width</li>
-<li><em>(min/max)-height:</em> viewport height</li>
-<li><em>(min/max)-device-width:</em> screen width</li>
-<li><em>(min/max)-device-height:</em> screen height</li>
-<li><em>orientation:</em> portrait(h>w) | landscape(w>h)</li>
-<li><em>(min/max)-aspect-ratio:</em> width/height</li>
-<li><em>(min/max)-device-aspect-ratio:</em> device-width/height</li>
-</ul>
-</section>
-<ul style="margin:-20px 20px; opacity: 0.3">
-<li><em>(min/max)-color:</em> </li>
-<li><em>(min/max)-color-index:</em> </li>
-<li><em>(min/max)-monochrome:</em> 0 | 1+</li>
-<li><em>(min/max)-resolution:</em> 72dpi | 100dpcm</li>
-<li><em>scan:</em> progressive | interlace (tv) </li>
-<li><em>grid:</em> 0 | 1 (grids (like tty) or bitmap)</li>
-<li>See <a href="http://www.w3.org/TR/css3-mediaqueries/#media1">Media Queries Spec</a></li>
-</ul>
-
+      <p><a href="../selectors/30.html">short</a> |
+      <a href="../selectors/">longer</a></p>
+    </section>
 </div>
 
-<!-- media queries: tidbits -->
+<div class="slide intro">
+  <header><h1>Back to the Future</h1></header>
+    <section class="content">
+      <h1><a href="../gradients/30.html">CSS3 Gradients</a></h1>
+
+      <p><a href="../gradients/30.html">short</a> |
+      <a href="../gradients/">longer</a></p>
+    </section>
+</div>
+
 <div class="slide">
-  <header>
-    <h1>Resource: How do you query it?</h1>
-    <h2>Media Query Syntax/Punctuation</h2>
-</header>
+  <header><h1>Gradient Exercise: Build this slide deck</h1></header>
     <section class="content">
-    <pre contenteditable>media="<b>only</b> print and (color)"
+      <p></p>
+      <ol>
+        <li>Add the gradients in old syntax, prefixed syntax and standard w3 syntax.<li>Remove the unsightly top border on the first list item(using the selectors we learned earlier)</li>
+        <li>Instead of the origin iPhone look, try the newer grey look and feel. How can you set up your gradients so that switch only takes 1 minute?</li>
+      </ol>
 
-media="only screen <b>and</b> (orientation: portrait)"
-
-media="<b>not</b> screen and (color)"
-
-media="print<b>,</b> screen and (min-width: 480px)"</pre>
- </section>
+      <p><a href="exercise/iphone/solution.html">Possible Solution</a></p>
+      <p><a href="exercise/iphone.zip">Download the files</a></p>
+    </section>
 </div>
 
-<!-- SVG Media Queries -->
+
+<div class="slide intro">
+  <header><h1>Fun Features</h1></header>
+    <section class="content">
+      <h1><a href="../animation/30.html">CSS3 Transforms, Transitions &amp; Animations</a></h1>
+
+      <p><a href="../animation/30.html">short</a> |
+      <a href="../animation/">longer</a></p>
+      <p>&nbsp;</p>
+      <p><a href="../snow/">Make it snow</a> <br>includes refresher of what we've done so far</p>
+    </section>
+</div>
+
 <div class="slide object">
-  <header><h1>Media Queries in SVG</h1></header>
-  <object data="play/circlesvg.html"></object>
-  <a href="play/circlesvg.html" class="objectlink" target="play">Play</a>
- </div>
+  <header><h1>Pop Quiz</h1></header>
+    <object data="../snow/index.html"></object>
+<a href="../snow/index.html" target="play" class="objectlink">Try it out</a>
+</div>
 
-<!-- SVG Media Queries -->
-<div class="slide object">
-  <header><h1>Media Queries in SVG</h1></header>
-  <object data="play/circlesvgimg.html"></object>
-  <a href="play/circlesvgimg.html" class="objectlink" target="play">Play</a>
- </div>
+<div class="slide intro">
+  <header><h1>Mobile Performance</h1></header>
+    <section class="content">
+      <h1><a href="../mobileperf/30.html">Mobile CSS3 <br/>Quirks and Pitfalls</a></h1>
 
- <!-- SVG Media Queries -->
-<div class="slide object">
-  <header><h1>SVG with Media Queries</h1></header>
-  <object data="http://estelle.github.io/clowncar/local.svg"></object>
-  <a href="http://estelle.github.io/clowncar/local.svgl" class="objectlink" target="play">Play</a>
- </div>
-
- <!-- SVG Media Queries -->
-<div class="slide object">
-  <header><h1>Clown Car Technique</h1></header>
-  <object data="play/svgimg.html"></object>
-  <a href="play/svgimg.html" class="objectlink" target="play">Play</a>
- </div>
-
-  <!-- SVG Media Queries -->
-<div class="slide object">
-  <header><h1>Clown Car Technique</h1></header>
-  <object data="play/adaptiveimages.html"></object>
-  <a href="play/adaptiveimages.html" class="objectlink" target="play">Play</a>
- </div>
-
-
-<!-- Reduce File Size - JPG not PNG, with Masking -->
-<div class="slide normal">
-     <header>
-      <h1>CSS Masking</h1>
-     </header>
-     <section>
-
-     <p class="onehundred">
-     <img src="images/frame.jpg" alt="jpeg" width="160">
-     <img src="images/plus.gif" alt="plus" width="100">
-     <img src="images/framemask.png" alt="framemask" width="160">
-     <img src="images/lessthan.gif" alt="less than" width="100">
-     <img src="images/frame2.png" alt="transparent png" width="160"><br>
-     <span style="width: 160px;">88KB</span>
-     <span style="width: 100px;"> + </span>
-     <span style="width: 160px;"> 4KB </span>
-     <span style="width: 100px;"> &lt; </span>
-     <span style="width: 160px;"> 551KB</span>
-     </p>
-     <pre contenteditable>div {
-  background-image:url(images/frame.jpg);
-  -webkit-mask: url(images/framemask.png);
-}</pre>
-     </section>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <p><a href="../mobileperf/30.html">short</a> |
+      <a href="../mobileperf/">longer</a></p>
+    </section>
+</div>
 <!-- Thank you -->
 <div class="slide normal">
      <header>
