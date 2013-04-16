@@ -3,8 +3,46 @@
   <head>
     <meta charset="utf-8" />
     <title>CSS3 &amp; Mobile Performance</title>
-    <style></style>
 <link href="mobilecss.css" rel="stylesheet" media="projection, screen">
+    <style>
+   #largegradient:hover {
+    background-image:url(images/hugegradient.jpg);
+    background-position: -125px -26px;
+  }
+
+  /* transition with and wirhtout reflow */
+
+  .fcode {
+   color: black;
+   font-size: 85%;
+   background-color: rgba(255,255,255,0.4);
+   -webkit-transition: all 2s ease-in 50ms;
+   -moz-transition: all 2s ease-in 50ms;
+   -ms-transition: all 2s ease-in 50ms;
+   -o-transition: all 2s ease-in 50ms;
+   transition: all 2s ease-in 50ms;
+   border:2px solid;
+}
+.fcode:hover {
+   color: red;
+   background-color: rgba(255,255,255,0.9);
+}
+.fcode:not(.fcode2):hover {
+   font-size: 120%;
+}
+.fcode2:hover {
+  -webkit-transform: scale(1.4);
+  -webkit-transform-origin: top left;
+  -moz-transform: scale(1.4);
+  -moz-transform-origin: top left;
+  -ms-transform: scale(1.4);
+  -ms-transform-origin: top left;
+  -o-transform: scale(1.4);
+  -o-transform-origin: top left;
+  transform: scale(1.4);
+  transform-origin: top left;
+
+}</style>
 
 </head>
 <body>
@@ -786,6 +824,268 @@ media="print<b>,</b> screen and (min-width: 480px)"</pre>
 }</pre>
      </section>
     </div>
+
+
+
+
+<div class="slide object">
+<object data="mask.html"></object>
+     <header><h1>Masking example</h1></header>
+     <a href="mask.html" class="objectlink" target="_foo">Open</a>
+ </div>
+
+<!-- CSS3 Options -->
+<div class="slide normal">
+     <header>
+      <h1>Is CSS3 the Solution?</h1>
+     </header>
+     <section>
+     <div style="float: left; width: 50%">
+     <h2>Properties</h2>
+     <ul class="big">
+        <li>rounded Corners</li>
+        <li>box-shadow</li>
+        <li>text-shadow</li>
+        <li>background-position</li>
+        <li>background-repeat</li>
+        <li>multiple background images</li>
+        <li>border-image</li>
+      <li>gradients</li>
+        <li>@media queries</li>
+     </ul>
+     </div>
+     <div style="float: left; width: 50%">
+     <h2>Benefits</h2>
+     <ul class="big">
+        <li>Fewer HTTP Requests</li>
+        <li>Updatable</li>
+        <li>Scalable</li>
+        <li>Transitionable</li>
+        <li>Animatable</li>
+        <li>Fewer DOM Nodes</li>
+     </ul>
+     </div>
+     </section>
+    </div>
+
+<!-- List of CSS properties that risk slowing you down -->
+<div class="slide normal" style="background-image:url(images/bugsbunny.jpg); background-size:cover">
+     <header>
+      <h1>CSS3 <span style="-webkit-text-stroke: #fff 1px;">ISN'T</span> always the Solution!</h1>
+      <h2 style="font-size: 40px">UI Features can ruin your web app</h2>
+     </header>
+     <section>
+     <ul class="big whitened" >
+      <li>Enlarged Fonts</li>
+      <li>Box Shadow (inset)</li>
+      <li>Text Indent</li>
+      <li>Gradients</li>
+        <li>background-size: cover</li>
+        <li>Sprites (of large images)</li>
+        <li>&lsquo;Non-rendered&rsquo; content</li>
+        <li>Recalculating / Repainting the UI</li>
+        </ul> <p style="font-weight:700; clear:both; ">Static images may render faster than CSS effects</p>
+
+<footer class="credit">Disney: "The Tortoise and The Hare"</footer>
+     </section>
+    </div>
+
+<!-- Tall fonts -->
+<div class="slide normal">
+     <header>
+      <h1>Fonts</h1>
+     </header>
+     <section id="fonts">
+       <img src="images/tallfont_02.gif" alt="Fonts with Tall Ascenders">
+       <img src="images/tallfont_03.gif" alt="Fonts with Tall Ascenders">
+       <img src="images/tallfont_04.gif"  alt="Fonts with Tall Ascenders">
+       <img src="images/tallfont_05.gif"  alt="Fonts with Tall Ascenders">
+       <footer class="notes">Fonts: Zapfino, Helvetica, Savoye<br>
+    Amount of space painted is large!</footer>
+
+       </section>
+    </div>
+
+
+ <div class="slide object">
+<object data="fonts.html"></object>
+     <header><h1>Large and Small Fonts</h1></header>
+     <a href="fonts.html" class="objectlink" target="_foo">Open it!</a>
+ </div>
+
+<div class="slide object">
+<object data="http://www.fontsquirrel.com/fontface/generator"></object>
+     <header><h1>Large and Small Fonts</h1></header>
+     <a href="http://www.fontsquirrel.com/fontface/generator" class="objectlink" target="_foo">www.fontsquirrel.com</a>
+ </div>
+
+<!-- Shadows -->
+<div class="slide normal" style="background-image: url(images/insetshadow.jpg); background-size: 70%; background-position:50% 87%">
+     <header>
+      <h1>Alpha transparent effects</h1>
+     </header>
+     <section>
+     <ul class="big">
+    <li>Not rendered as static bitmap</li>
+    <li>Evaluated  each repaint</li>
+     </ul>
+     <footer>Render order: rendered from back to front</footer>
+     </section>
+    </div>
+
+
+
+<!--shaders -->
+<div class="slide object">
+<header><h1>Shaders</h1></header>
+<object data="http://html5-demos.appspot.com/static/css/filters/index.html"></object>
+<a href="http://html5-demos.appspot.com/static/css/filters/index.html" target="play" class="objectlink">Visit Site</a>
+</div>
+
+
+
+<!-- Text-indent -->
+<div class="slide normal" style="background-image:url(images/medium_phone.jpg); background-position: 600px 100px;">
+     <header>
+      <h1>Text-indent</h1>
+     </header>
+     <section>
+     <div style="position:absolute; left: 40px; top: 240px; padding:5px;">MyLogo Text</div>
+     <div style="position:absolute; left: 660px; top: 240px; border-radius:50%; background-color:#F39; color:#fff; padding:5px;">Logo</div>
+     <div style="position:absolute; left: 40px; top: 230px; width: 740px; height:80px; border: 2px dashed #ccc;"></div>
+
+     <ul class="sevenless" style="margin-top:300px">
+      <li>Use CSS Clip</li>
+        <li>Position text up instead of left</li>
+
+     </ul>
+     </section>
+    </div>
+
+
+<!-- Gradients -->
+<div class="slide normal" id="largegradient">
+     <header>
+      <h1>Large Gradients</h1>
+     </header>
+     <section>
+     <ul class="big" style="width: 550px"><img src="images/iphonered.png" alt="iphone with large gradient" style="position: absolute; top: 70px; left: 586px"/>
+      <li>Keep gradients small</li>
+        <li>Requires CPU to create</li>
+        <li>Stored in memory</li>
+        <li>Memory: Radial >  Linear </li>
+        <li>Render Speed: <br>
+Images often faster than Gradients</li>
+     </ul>
+
+     </section>
+    </div>
+
+
+
+
+
+
+
+<!-- font transition example -->
+<div class="slide">
+<header><h1>transitions</h1></header>
+<section class="content">
+<pre contenteditable class="fcode">code {
+   color: black;
+   font-size: 85%;
+   background-color: rgba(255,255,255,0.9);
+   transition: all 2s ease-in 50ms;
+}
+code:hover {
+   color: red;
+   font-size: 120%;
+   background-color: rgba(255,255,255,0.8);
+}
+</pre>
+<p>Requires reflow!</p>
+</section>
+</div>
+
+
+<!-- font transition example -->
+<div class="slide">
+<header><h1>transitions with transforms</h1></header>
+<section class="content">
+<pre contenteditable class="fcode fcode2">code {
+   color: black;
+   font-size: 85%;
+   background-color: rgba(255,255,255,0.9);
+   transition: all 2s ease-in 50ms;
+}
+code:hover {
+   color: red;
+   transform: scale(1.4);
+   transform-origin: 0 0;
+   background-color: rgba(255,255,255,0.8);
+}
+</pre>
+
+<p>Only repaints</p>
+</section>
+</div>
+
+
+
+
+
+
+<!-- 3D Transforms -->
+<div class="slide normal" style="background-image:url(images/panacea.png); background-position: 50% 65%;">
+     <header>
+      <h1>Hardware Acceleration: 3d Transforms</h1>
+     </header>
+     <section>
+<pre contenteditable> div {
+  transform: translateZ(0);
+ }</pre>
+
+     <h1>translateZ(0)</h1>
+     <p style="margin-top: 260px;" class="big">Composited mage in memory == <code style="font-weight:bold">H x W x 4</code></p>
+     <p>Take advantage of hardware acceleration, but don't abuse it. GPU accelerated elements eat video <strong>memory</strong></p>
+     </section>
+    </div>
+
+
+
+
+<div class="slide normal">
+     <header><h1>Images</h1></header>
+     <section class="content">
+     <h2>Use background images, instead of foreground images.</h2>
+     <p>Background images are first rendered with image data send to Core Animation. Safari doesn't render &lt;img&gt; first. The decoded image file is sent, as is, pre-rendered, to the Core Animation as a new layer. Foreground images is sent to Core Animation as image data which it has to keep in graphics memory. This uses more memory.</p>
+     </section>
+ </div>
+
+<!-- It's a phone -->
+<div class="slide normal">
+     <header>
+      <h1>Remember...</h1>
+     </header>
+
+       <section>
+          <h1 style="font-size: 60px; letter-spacing:0px" class="temphidden">Your users may not be tethered</h1>
+          <h1 style="font-size: 60px; letter-spacing:0px" class="temphidden">and their memory may be very limited.</h1>
+     </section>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
