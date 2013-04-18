@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>CSS3 &amp; Mobile Performance</title>
-<link href="mobilexcss.css" rel="stylesheet" media="projection, screen">
+<link href="mobilecss.css" rel="stylesheet" media="projection, screen">
 
     <style>
-	.slide {outline: 10px solid red; margin: 100px 0}
    #largegradient:hover {
     background-image:url(images/hugegradient.jpg);
     background-position: -125px -26px;
@@ -44,7 +43,12 @@
   transform: scale(1.4);
   transform-origin: top left;
 
-}</style>
+}
+.compact li, .compact ul {
+	margin-top: 0.3em;
+	margin-bottom: 0;	
+}
+</style>
 
 </head>
 <body>
@@ -433,7 +437,7 @@ development, but increase energy use.</li>
 
 
 
-<div class="slide intro">
+<div class="slide">
   <header>
     <h1>Solution</h1></header>
     <section class="content">
@@ -443,7 +447,7 @@ development, but increase energy use.</li>
         <li>Reduce the number of HTTP requests</li>
         <li>Don't redirect</li>
         <li>Use Data URIs</li>
-        <li>Use Sprites</li>
+        <li>Use Sprites (not too big - memory issues!!!)</li>
         <li>Levarage localStorage</li>
     </ul>
     </section>
@@ -590,49 +594,35 @@ leads to sloppy App Dev</p>
      <header>
       <h1>Solutions</h1>
      </header>
-     <section>
-<ul>
-<li>Reduce File Size
+    </header>
+    <section style="background:url(images/tinySrc.jpg) top right no-repeat; min-height:500px;  padding:20px;">
+<ul class="sevenless compact" style="background-color: rgba(0,0,0,0.3); color: white; float: left; list-style-position:none;">
+<li>Reduce file size
 	<ul>
     	<li>Use tools (ImageAlpha, TinyPNG)</li>
     	<li>Use PNG8</li>
     </ul>
 </li> 
-<li>Reduce Image Size
+<li>Reduce image size</li>
+<li>Serve the right image
 	<ul>
     	<li>Use Media Queries</li>
         <li>Use tools (http://src.sencha.io/http://myimage)</li>
+        <li>&lt;picture&gt;</li>
+		<li>srcset attribute</li>
         <li>Clown Car Technique</li>
+		<li>Use fonts when you can</li>
     </ul>
 </li> 
 </ul>
 
 
 <p> Video, Audio, Images and Text can be compressed to save bandwidth, but they're uncompressed in the browser.</p>
-<p>&nbsp;</p>
-    
+
+   <footer class="credit">Photo: <a href="http://www.hdwallpapers4ipad.com/photo/abstract_backgrounds/broken_screen/2-0-1568">hdwallpapers4ipad.com</a></footer>    
      </section>
     </div>
 
-
-<!-- Reduce Image Size - Sencha IO-->
-<div class="slide normal">
-    <header>
-      <h1>Reduce Image Size</h1>
-    </header>
-    <section style="background:url(images/tinySrc.jpg) top no-repeat; min-height:500px; background-size: contain; padding:20px;">
-    <p style="color:#fff; padding-top: 40px; line-height: 1.4;text-shadow:1px 1px 3px #000,-1px -1px 3px #000; font-weight:bold;">Don't send <big>big</big> images to <small>small</small> screens?<br>
-Images <big>1024px</big> or bigger are too <big>big</big> for memory</p>
-<p style="margin-top: 225px;"><a href="http://src.sencha.io/320/480/http://kittenssite.com/kitten.jpg" target="play" style="color: white; text-shadow: 2px 2px 1px black, -2px -2px 1px black;">http://src.sencha.io/320/480/http://unicorns.com/kitten.jpg</a></p>
-<p>&lt;picture&gt;</p>
-<p>srcset attribute</p>
-<p>Clown Car Technique</p>
-<p>Fonts rather than images</p>
-    </ul>
-
-   <footer class="credit">Photo: <a href="http://www.hdwallpapers4ipad.com/photo/abstract_backgrounds/broken_screen/2-0-1568">hdwallpapers4ipad.com</a></footer>
-    </section>
-</div>
 
 <!-- media queries -->
 
@@ -654,6 +644,11 @@ Images <big>1024px</big> or bigger are too <big>big</big> for memory</p>
 </div>
 
 
+<div class="slide" style="background-image: url(images/devicesizes.jpg); background-position:bottom;" >
+  <header><h1>Varied Screen Sizes</h1></header>
+   
+</div>
+
 
 
 <!-- media queries: browser support -->
@@ -673,7 +668,8 @@ Images <big>1024px</big> or bigger are too <big>big</big> for memory</p>
   }
 }
 <b>@media screen and (min-width: 481px) and (max-width: 960px),
-screen and (min-width:540px) and (-webkit-min-device-pixel-ratio: 2)</b>{
+screen and (min-width: 380px) and (min-resolution: 130dpi),
+screen and (min-width: 380px) and (-webkit-min-device-pixel-ratio: 2)</b>{
   body {
     background-image: url(large/bgimage.jpg);
   }
@@ -696,56 +692,49 @@ screen and (min-width:540px) and (-webkit-min-device-pixel-ratio: 2)</b>{
 <li><em>orientation:</em> portrait(h>w) | landscape(w>h)</li>
 <li><em>(min/max)-aspect-ratio:</em> width/height</li>
 <li><em>(min/max)-device-aspect-ratio:</em> device-width/height</li>
+<li><em>(min/max)-resolution:</em> 72dpi | 100dpcm</li>
 </ul>
-</section>
-<ul style="margin:-20px 20px; opacity: 0.3">
+<ul class="content" style="opacity: 0.3">
 <li><em>(min/max)-color:</em> </li>
 <li><em>(min/max)-color-index:</em> </li>
 <li><em>(min/max)-monochrome:</em> 0 | 1+</li>
-<li><em>(min/max)-resolution:</em> 72dpi | 100dpcm</li>
 <li><em>scan:</em> progressive | interlace (tv) </li>
 <li><em>grid:</em> 0 | 1 (grids (like tty) or bitmap)</li>
 <li>See <a href="http://www.w3.org/TR/css3-mediaqueries/#media1">Media Queries Spec</a></li>
 </ul>
 
+</section>
 </div>
 
-<!-- media queries: tidbits -->
-<div class="slide">
-  <header>
-    <h1>Resource: How do you query it?</h1>
-    <h2>Media Query Syntax/Punctuation</h2>
-</header>
-    <section class="content">
-    <pre contenteditable>media="<b>only</b> print and (color)"
-
-media="only screen <b>and</b> (orientation: portrait)"
-
-media="<b>not</b> screen and (color)"
-
-media="print<b>,</b> screen and (min-width: 480px)"</pre>
- </section>
-</div>
-
-<!-- SVG Media Queries -->
-<div class="slide object">
-  <header><h1>Media Queries in SVG</h1></header>
-  <object data="play/circlesvg.html"></object>
-  <a href="play/circlesvg.html" class="objectlink" target="play">Play</a>
- </div>
-
-<!-- SVG Media Queries -->
-<div class="slide object">
-  <header><h1>Media Queries in SVG</h1></header>
-  <object data="play/circlesvgimg.html"></object>
-  <a href="play/circlesvgimg.html" class="objectlink" target="play">Play</a>
- </div>
 
  <!-- SVG Media Queries -->
-<div class="slide object">
-  <header><h1>SVG with Media Queries</h1></header>
-  <object data="http://estelle.github.io/clowncar/local.svg"></object>
-  <a href="http://estelle.github.io/clowncar/local.svg" class="objectlink" target="play">Play</a>
+<div class="slide">
+  <header><h1>Media Queries + SVG</h1></header>
+  <section>
+  <object data="http://estelle.github.io/clowncar/local.svg" style="float: right;"></object>
+<pre>
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 300 329&quot; preserveAspectRatio=&quot;xMidYMid meet&quot;&gt;
+ &lt;title&gt;Clown Car Technique&lt;/title&gt;
+ &lt;style&gt; 
+  svg {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  } 
+ @media screen and (max-width: 400px) {
+  svg {background-image: url(images/small.png&quot;);}
+ } 
+ @media screen and (min-width: 401px) and (max-width: 700px) {
+  svg {background-image: url(images/medium.png);}
+ } 
+ @media screen and (min-width: 701px) and (max-width: 1000px) {
+  svg {background-image: url(images/big.png);}
+ } 
+ @media screen and (min-width: 1001px) {
+  svg {background-image: url(images/huge.png);}
+ }
+ &lt;/style&gt;
+&lt;/svg&gt;</pre>
+  </section>
  </div>
 
  <!-- SVG Media Queries -->
@@ -855,21 +844,7 @@ media="print<b>,</b> screen and (min-width: 480px)"</pre>
      </section>
     </div>
 
-<!-- Tall fonts -->
-<div class="slide normal">
-     <header>
-      <h1>Fonts</h1>
-     </header>
-     <section id="fonts">
-       <img src="images/tallfont_02.gif" alt="Fonts with Tall Ascenders">
-       <img src="images/tallfont_03.gif" alt="Fonts with Tall Ascenders">
-       <img src="images/tallfont_04.gif"  alt="Fonts with Tall Ascenders">
-       <img src="images/tallfont_05.gif"  alt="Fonts with Tall Ascenders">
-       <footer class="notes">Fonts: Zapfino, Helvetica, Savoye<br>
-    Amount of space painted is large!</footer>
 
-      </section>
-    </div>
 
 
  <div class="slide object">
@@ -899,33 +874,6 @@ media="print<b>,</b> screen and (min-width: 480px)"</pre>
     </div>
 
 
-
-<!--shaders -->
-<div class="slide object">
-<header><h1>Shaders</h1></header>
-<object data="http://html5-demos.appspot.com/static/css/filters/index.html"></object>
-<a href="http://html5-demos.appspot.com/static/css/filters/index.html" target="play" class="objectlink">Visit Site</a>
-</div>
-
-
-
-<!-- Text-indent -->
-<div class="slide normal" style="background-image:url(images/medium_phone.jpg); background-position: 600px 100px;">
-     <header>
-      <h1>Text-indent</h1>
-     </header>
-     <section>
-     <div style="position:absolute; left: 40px; top: 240px; padding:5px;">MyLogo Text</div>
-     <div style="position:absolute; left: 660px; top: 240px; border-radius:50%; background-color:#F39; color:#fff; padding:5px;">Logo</div>
-     <div style="position:absolute; left: 40px; top: 230px; width: 740px; height:80px; border: 2px dashed #ccc;"></div>
-
-     <ul class="sevenless" style="margin-top:300px">
-      <li>Use CSS Clip</li>
-        <li>Position text up instead of left</li>
-
-     </ul>
-     </section>
-    </div>
 
 
 <!-- Gradients -->
