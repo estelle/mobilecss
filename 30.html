@@ -6,6 +6,7 @@
 <link href="mobilecss.css" rel="stylesheet" media="projection, screen">
 
     <style>
+	//.slide {outline: solid;}
    #largegradient:hover {
     background-image:url(images/hugegradient.jpg);
     background-position: -125px -26px;
@@ -15,7 +16,7 @@
 
   .fcode {
    color: black;
-   font-size: 85%;
+   font-size: 1.6rem;
    background-color: rgba(255,255,255,0.4);
    -webkit-transition: all 2s ease-in 50ms;
    -moz-transition: all 2s ease-in 50ms;
@@ -24,12 +25,13 @@
    transition: all 2s ease-in 50ms;
    border:2px solid;
 }
+.big {font-size: 2.2rem;}
 .fcode:hover {
    color: red;
    background-color: rgba(255,255,255,0.9);
 }
 .fcode:not(.fcode2):hover {
-   font-size: 120%;
+   font-size: 2.2rem;
 }
 .fcode2:hover {
   -webkit-transform: scale(1.4);
@@ -333,68 +335,25 @@ A complex page means more bytes to download, and it also means slower DOM access
     </div>
 
 
-<!-- Battery -->
-<div class="slide normal"><header>
-      <h1>Battery</h1>
-     </header>
-     <section class="content">
-
-<h2>Images</h2>
-<ul class="sevenless">
-<li>JPEGs <strong title="perform better than">≻</strong> GIFs and PNGs</li>
-<li>Images ⇒ energy consumption</li>
-<li>Rendering energy is proportional to # and size of images.</li>
-</ul>
-<h2>JavaScript</h2>
-<ul class="sevenless">
-<li><em>Render cost:</em> JS (and CSS) <strong title="can be as expensive to render as">≃</strong> images</li>
-<li><em title="(like XMLHttpRequest)">Dynamic JS:</em> ⬆ rendering cost (can't be cached). </li>
-<li>JS (download, parsing &amp; executing) can be the most energy consuming web page component
-</li></ul>
-    </section>
-</div>
-
-<div class="slide">
-  <header><h1>JavaScript drains the battery</h1></header>
-    <section class="content">
-<ul class="sevenless">
-<li>All scripts loaded and parsed (even if not used)</li>
-<li>Reduce JS to only what is needed</li>
-<li>Are libraries really necessary?
-<ul>
-  <li>Include only functions used by page to reduces
-
-energy use.</li>
-  <li>Goal of most: equalize across browsers <br> (not necessry in mobile space)</li>
-<li>Libraries simplify web
-
-development, but increase energy use.</li>
-<li><a href="http://estelle.github.com/jsframeworks">You don't need a framework for that</a></li></ul></li></ul>
-   </section>
- </div>
-
-
-
-
 
 <!-- BATTERY -->
 <div class="slide normal">
      <header>
-      <h1>Battery</h1>
+      <h1>Battery: Solutions</h1>
      </header>
      <section>
         <p>CPU Drains the battery. Avoid using it!</p>
         <ul class="sevenless">
+          <li>Use JPEGs over PNGs, and PNGs over GIFs</li>
           <li>Minimize the DOM</li>
-          <li>Avoid reflows</li>
-          <li>Avoid repaints</li>
+          <li>Avoid reflows and repaints</li>
           <li>Minimize JavaScript (size and activity)</li>
           <li>No JavaScript animations</li>
           <li>Do you really need library/framework?</li>
           <li>Use darker colors if you can</li>
         </ul>
      </section>
-        <footer>Resource: <a href="http://www2012.org/proceedings/proceedings/p41.pdf">Who killed my battery - PDF</a></footer>
+        <footer>Don'e use Gifs!!!!   &nbsp; &nbsp; Resource: <a href="http://www2012.org/proceedings/proceedings/p41.pdf">Who killed my battery - PDF</a></footer>
 </div>
 <!-- TERM:  Latency -->
 <div class="slide intro" style="background:url(images/latencykills.jpg) bottom center no-repeat #ffffff;">
@@ -439,7 +398,7 @@ development, but increase energy use.</li>
 
 <div class="slide">
   <header>
-    <h1>Solution</h1></header>
+    <h1>Latendy: Solution</h1></header>
     <section class="content">
     <p>Issue: Requests take longer to complete</p>
     <ul class="sevenless">
@@ -592,7 +551,7 @@ leads to sloppy App Dev</p>
 <!-- Reduce File Size - ImageAlpha -->
 <div class="slide normal">
      <header>
-      <h1>Solutions</h1>
+      <h1>Images &amp; Memory: Solutions</h1>
      </header>
     </header>
     <section style="background:url(images/tinySrc.jpg) top right no-repeat; min-height:500px;  padding:20px;">
@@ -627,33 +586,29 @@ leads to sloppy App Dev</p>
 <!-- media queries -->
 
 
-<div class="slide">
+
+<div class="slide" style="background-image: url(images/devicesizes.jpg); background-position:bottom;" >
   <header><h1>Varied Screen Sizes</h1></header>
     <section class="content">
-      <ul class="sevenless">
+      <ul style="margin-top: 270px; font-size:1.1em">
+      <li>Wrist Watch</li>
       <li>Smart Phone</li>
       <li>Tablet</li>
       <li>Laptop</li>
       <li>Monitor</li>
       <li>TV</li>
-      <li>Wrist Watch</li>
+      <li></li>
+      <li>portrait v. landscape?</li>
+      <li>high and low resolution?</li>
       </ul>
-      <h2 class="temphidden">portrait v. landscape?</h2>
-      <h2 class="temphidden">high and low resolution?</h2>
     </section>
-</div>
-
-
-<div class="slide" style="background-image: url(images/devicesizes.jpg); background-position:bottom;" >
-  <header><h1>Varied Screen Sizes</h1></header>
-   
 </div>
 
 
 
 <!-- media queries: browser support -->
  <div class="slide normal">
-  <header><h1>media queries</h1></header>
+  <header><h1>Screen Size Solution: media queries</h1></header>
     <section class="content">
     <pre contenteditable style="font-size: 100%;">&lt;link rel='stylesheet'
 <b>media='screen and (min-width: 320px) and (max-width: 480px)'</b><br/>href='css/smartphone.css' /&gt;</pre>
@@ -795,8 +750,8 @@ screen and (min-width: 380px) and (-webkit-min-device-pixel-ratio: 2)</b>{
      </header>
      <section>
      <div style="float: left; width: 50%">
-     <h2>Properties</h2>
-     <ul class="big">
+  
+     <ul class="sevenless">
         <li>rounded Corners</li>
         <li>box-shadow</li>
         <li>text-shadow</li>
@@ -810,7 +765,7 @@ screen and (min-width: 380px) and (-webkit-min-device-pixel-ratio: 2)</b>{
      </div>
      <div style="float: left; width: 50%">
      <h2>Benefits</h2>
-     <ul class="big">
+     <ul class="sevenless">
         <li>Fewer HTTP Requests</li>
         <li>Updatable</li>
         <li>Scalable</li>
@@ -847,17 +802,18 @@ screen and (min-width: 380px) and (-webkit-min-device-pixel-ratio: 2)</b>{
 
 
 
- <div class="slide object">
-<object data="fonts.html"></object>
-     <header><h1>Large and Small Fonts</h1></header>
-     <a href="fonts.html" class="objectlink" target="_foo">Open it!</a>
- </div>
-
 <div class="slide object">
 <object data="http://www.fontsquirrel.com/fontface/generator"></object>
      <header><h1>Large and Small Fonts</h1></header>
      <a href="http://www.fontsquirrel.com/fontface/generator" class="objectlink" target="_foo">www.fontsquirrel.com</a>
  </div>
+ 
+ <div class="slide object">
+<object data="http://copypastecharacter.com"></object>
+     <header><h1>Use icons, not images or external fonts</h1></header>
+     <a href="http://copypastecharacter.com" class="objectlink" target="_foo">Open it!</a>
+ </div>
+
 
 <!-- Shadows -->
 <div class="slide normal" style="background-image: url(images/insetshadow.jpg); background-size: 70%; background-position:50% 87%">
@@ -906,13 +862,13 @@ Images often faster than Gradients</li>
 <section class="content">
 <pre contenteditable class="fcode">code {
    color: black;
-   font-size: 85%;
+   font-size: 1.6rem;
    background-color: rgba(255,255,255,0.9);
    transition: all 2s ease-in 50ms;
 }
 code:hover {
    color: red;
-   font-size: 120%;
+   font-size: 2.2rem;
    background-color: rgba(255,255,255,0.8);
 }
 </pre>
@@ -927,7 +883,7 @@ code:hover {
 <section class="content">
 <pre contenteditable class="fcode fcode2">code {
    color: black;
-   font-size: 85%;
+   font-size: 1.6rem;
    background-color: rgba(255,255,255,0.9);
    transition: all 2s ease-in 50ms;
 }
@@ -964,16 +920,6 @@ code:hover {
      </section>
     </div>
 
-
-
-
-<div class="slide normal">
-     <header><h1>Images</h1></header>
-     <section class="content">
-     <h2>Use background images, instead of foreground images.</h2>
-     <p>Background images are first rendered with image data send to Core Animation. Safari doesn't render &lt;img&gt; first. The decoded image file is sent, as is, pre-rendered, to the Core Animation as a new layer. Foreground images is sent to Core Animation as image data which it has to keep in graphics memory. This uses more memory.</p>
-     </section>
- </div>
 
 <!-- It's a phone -->
 <div class="slide normal">
@@ -1032,6 +978,46 @@ code:hover {
             </ul>
 	  </section>
     </div>
+
+
+
+
+
+
+
+
+
+<div class="slide normal">
+     <header><h1>More on Images</h1></header>
+     <section class="content">
+     <h2>Use background images, instead of foreground images.</h2>
+     <p>Background images are first rendered with image data send to Core Animation. Safari doesn't render &lt;img&gt; first. The decoded image file is sent, as is, pre-rendered, to the Core Animation as a new layer. Foreground images is sent to Core Animation as image data which it has to keep in graphics memory. This uses more memory.</p>
+<ul class="sevenless">
+<li>JPEGs perform better than  GIFs and PNGs</li>
+<li>Images ⇒ energy consumption</li>
+<li>Rendering energy is proportional to # and size of images.</li>
+</ul>
+ </section>
+ </div>
+
+<div class="slide normal">
+     <header><h1>More on JavaScript</h1></header>
+     <section class="content">
+<ul class="sevenless">
+<li> JS (and CSS) can be as expensive to render as images</li>
+<li>Dynamic JS (like XMLHttpRequest) increase rendering cost (can't be cached). </li>
+<li>JS (download, parsing &amp; executing) can be biggest energy consumer
+</li>
+<li>All scripts loaded and parsed (even if not used)</li>
+<li>Minimize JS to what's needed. Is library necessary?
+<ul>
+  <li>Include only functions used by page</li>
+  <li>Goal of libs  is to equalize browsers: not necessry on mobile</li>
+<li>Libraries my simplify web
+
+development, but increase energy use. (<a href="http://estelle.github.com/jsframeworks">My framework talk</a>).</li></ul></li></ul>
+   </section>
+ </div>
 
 
 
